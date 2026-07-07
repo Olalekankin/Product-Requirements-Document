@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Card, Button, Badge, Input } from "@/components/ui/core";
 import { formatTimeAgo } from "@/lib/utils";
 import { getStatusColor, getStatusLabel, getRelevanceColor } from "@/lib/formatters";
-import { Search, MapPin, DollarSign, Building, Star, ChevronDown, Check, X, Bookmark, Archive, SlidersHorizontal, ChevronRight, ChevronLeft } from "lucide-react";
+import { Search, MapPin, DollarSign, Building, Star, Check, X, SlidersHorizontal, ChevronRight, ChevronLeft, ExternalLink, Wifi, MapPinOff } from "lucide-react";
 import { Link } from "wouter";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -151,83 +151,111 @@ function BriefcaseIcon(props: any) {
 function JobCard({ job, onStatusChange, onFavoriteToggle }: { job: any, onStatusChange: (id: number, s: JobStatus) => void, onFavoriteToggle: (id: number, f: boolean) => void }) {
   return (
     <Card className="p-0 overflow-hidden group hover:border-primary/50 transition-colors">
-      <div className="flex flex-col sm:flex-row">
-        <div className="p-5 flex-1 min-w-0">
-          <div className="flex items-start justify-between gap-4 mb-2">
-            <div>
-              <Link href={`/jobs/${job.id}`}>
-                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors cursor-pointer truncate">
-                  {job.title}
-                </h3>
-              </Link>
-              <div className="flex items-center gap-3 text-sm text-muted-foreground mt-1 font-medium">
-                <span className="flex items-center gap-1 text-foreground/80">
-                  <Building className="w-4 h-4" /> {job.company}
-                </span>
-                {job.location && (
-                  <>
-                    <span>•</span>
-                    <span className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4" /> {job.location} {job.remote && "(Remote)"}
-                    </span>
-                  </>
-                )}
-                {job.salary && (
-                  <>
-                    <span>•</span>
-                    <span className="flex items-center gap-1 text-green-700 dark:text-green-400">
-                      <DollarSign className="w-4 h-4" /> {job.salary}
-                    </span>
-                  </>
-                )}
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-3 shrink-0">
-              <div className={`px-2.5 py-1 rounded-md text-sm font-bold shadow-sm ${getRelevanceColor(job.relevanceScore)}`}>
-                {job.relevanceScore !== null ? `${job.relevanceScore}` : "-"}
-              </div>
-              <button 
-                onClick={() => onFavoriteToggle(job.id, job.favorite)}
-                className={`p-2 rounded-md hover:bg-muted transition-colors ${job.favorite ? "text-yellow-500" : "text-muted-foreground"}`}
-              >
-                <Star className="w-5 h-5" fill={job.favorite ? "currentColor" : "none"} />
-              </button>
-            </div>
-          </div>
-          
-          {job.aiSummary && (
-            <p className="text-sm text-muted-foreground mt-3 line-clamp-2 leading-relaxed">
-              {job.aiSummary}
-            </p>
-          )}
-
-          <div className="flex items-center gap-4 mt-4">
-            <Badge variant={getStatusColor(job.status)}>{getStatusLabel(job.status)}</Badge>
-            <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
-              {job.source} • {formatTimeAgo(job.postedAt)}
+      <div className="p-5">
+        {/* Top row: title + score + favorite */}
+        <div className="flex items-start justify-between gap-4 mb-2">
+          <div className="min-w-0 flex-1">
+            <Link href={`/jobs/${job.id}`}>
+              <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors cursor-pointer leading-snug">
+                {job.title}
+              </h3>
+            </Link>
+            <span className="text-sm text-muted-foreground font-medium flex items-center gap-1 mt-0.5">
+              <Building className="w-3.5 h-3.5 shrink-0" /> {job.company}
             </span>
-            
-            <div className="flex-1" />
-            
-            <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-              {job.status === JobStatus.new && (
-                <>
-                  <Button size="sm" variant="ghost-danger" onClick={() => onStatusChange(job.id, JobStatus.ignored)}>
-                    <X className="w-4 h-4 mr-1" /> Ignore
-                  </Button>
-                  <Button size="sm" variant="outline" className="border-green-200 text-green-700 hover:bg-green-50" onClick={() => onStatusChange(job.id, JobStatus.interested)}>
-                    <Check className="w-4 h-4 mr-1" /> Interested
-                  </Button>
-                </>
-              )}
-              {job.status === JobStatus.interested && (
-                <Button size="sm" className="bg-blue-600 hover:bg-blue-700" onClick={() => onStatusChange(job.id, JobStatus.applied)}>
-                  <Check className="w-4 h-4 mr-1" /> Mark Applied
-                </Button>
-              )}
-            </div>
           </div>
+          <div className="flex items-center gap-2 shrink-0">
+            <div className={`px-2.5 py-1 rounded-md text-sm font-bold shadow-sm ${getRelevanceColor(job.relevanceScore)}`}>
+              {job.relevanceScore !== null ? `${job.relevanceScore}` : "–"}
+            </div>
+            <button
+              onClick={() => onFavoriteToggle(job.id, job.favorite)}
+              className={`p-1.5 rounded-md hover:bg-muted transition-colors ${job.favorite ? "text-yellow-500" : "text-muted-foreground/60 hover:text-muted-foreground"}`}
+            >
+              <Star className="w-4 h-4" fill={job.favorite ? "currentColor" : "none"} />
+            </button>
+          </div>
+        </div>
+
+        {/* Meta chips: remote, location, salary */}
+        <div className="flex flex-wrap items-center gap-2 mt-2">
+          {job.remote && (
+            <span className="inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-200 dark:bg-green-950 dark:text-green-300 dark:border-green-800">
+              <Wifi className="w-3 h-3" /> Remote
+            </span>
+          )}
+          {!job.remote && job.location && (
+            <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full bg-muted text-muted-foreground border border-border">
+              <MapPin className="w-3 h-3" /> {job.location}
+            </span>
+          )}
+          {job.remote && job.location && (
+            <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full bg-muted text-muted-foreground border border-border">
+              <MapPin className="w-3 h-3" /> {job.location}
+            </span>
+          )}
+          {!job.remote && !job.location && (
+            <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full bg-muted text-muted-foreground/60 border border-border">
+              <MapPinOff className="w-3 h-3" /> Location TBD
+            </span>
+          )}
+          {job.salary && (
+            <span className="inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950 dark:text-emerald-300 dark:border-emerald-800">
+              <DollarSign className="w-3 h-3" /> {job.salary}
+            </span>
+          )}
+          {job.employmentType && (
+            <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full bg-muted text-muted-foreground border border-border">
+              {job.employmentType}
+            </span>
+          )}
+        </div>
+
+        {/* AI summary */}
+        {job.aiSummary && (
+          <p className="text-sm text-muted-foreground mt-3 line-clamp-2 leading-relaxed">
+            {job.aiSummary}
+          </p>
+        )}
+
+        {/* Bottom row: status + source + actions + APPLY */}
+        <div className="flex items-center gap-3 mt-4 pt-3 border-t border-border/50">
+          <Badge variant={getStatusColor(job.status)}>{getStatusLabel(job.status)}</Badge>
+          <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
+            {job.source} • {formatTimeAgo(job.postedAt)}
+          </span>
+
+          <div className="flex-1" />
+
+          {/* Quick status actions — visible on hover */}
+          <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            {job.status === JobStatus.new && (
+              <>
+                <Button size="sm" variant="ghost-danger" onClick={() => onStatusChange(job.id, JobStatus.ignored)}>
+                  <X className="w-3.5 h-3.5 mr-1" /> Ignore
+                </Button>
+                <Button size="sm" variant="outline" className="border-green-200 text-green-700 hover:bg-green-50" onClick={() => onStatusChange(job.id, JobStatus.interested)}>
+                  <Check className="w-3.5 h-3.5 mr-1" /> Interested
+                </Button>
+              </>
+            )}
+            {job.status === JobStatus.interested && (
+              <Button size="sm" className="bg-blue-600 hover:bg-blue-700" onClick={() => onStatusChange(job.id, JobStatus.applied)}>
+                <Check className="w-3.5 h-3.5 mr-1" /> Mark Applied
+              </Button>
+            )}
+          </div>
+
+          {/* Apply link — always visible */}
+          <a
+            href={job.url}
+            target="_blank"
+            rel="noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shrink-0"
+          >
+            Apply <ExternalLink className="w-3.5 h-3.5" />
+          </a>
         </div>
       </div>
     </Card>

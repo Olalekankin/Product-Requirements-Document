@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { desc, eq, and, gte, sql } from "drizzle-orm";
+import { desc, eq, gte, sql } from "drizzle-orm";
 import { db, schedulerRunsTable, jobsTable, sourcesTable, keywordsTable, settingsTable } from "@workspace/db";
 import { ListSchedulerRunsQueryParams } from "@workspace/api-zod";
 import { summarizeJob } from "../lib/gemini";
@@ -23,9 +23,7 @@ router.get("/scheduler/status", async (_req, res): Promise<void> => {
     .from(schedulerRunsTable)
     .where(gte(schedulerRunsTable.startedAt, today));
 
-  const nextRunAt = lastRunAt
-    ? getNextRunAt(lastRunAt, frequency)
-    : null;
+  const nextRunAt = lastRunAt ? getNextRunAt(lastRunAt, frequency) : null;
 
   res.json({
     isRunning: isScanning,
@@ -39,34 +37,19 @@ router.get("/scheduler/status", async (_req, res): Promise<void> => {
 function getNextRunAt(lastRun: Date, frequency: string): Date {
   const next = new Date(lastRun);
   switch (frequency) {
-    case "15min":
-      next.setMinutes(next.getMinutes() + 15);
-      break;
-    case "1hour":
-      next.setHours(next.getHours() + 1);
-      break;
-    case "2xdaily":
-      next.setHours(next.getHours() + 12);
-      break;
-    case "daily":
-      next.setDate(next.getDate() + 1);
-      break;
-    default:
-      next.setHours(next.getHours() + 1);
+    case "15min":  next.setMinutes(next.getMinutes() + 15); break;
+    case "1hour":  next.setHours(next.getHours() + 1); break;
+    case "2xdaily": next.setHours(next.getHours() + 12); break;
+    case "daily":  next.setDate(next.getDate() + 1); break;
+    default:       next.setHours(next.getHours() + 1);
   }
   return next;
 }
 
 // POST /scheduler/trigger
-router.post("/scheduler/trigger", async (req, res): Promise<void> => {
+router.post("/scheduler/trigger", async (_req, res): Promise<void> => {
   if (isScanning) {
-    res.json({
-      jobsFound: 0,
-      jobsAdded: 0,
-      jobsDuplicated: 0,
-      runId: -1,
-      durationMs: 0,
-    });
+    res.json({ jobsFound: 0, jobsAdded: 0, jobsDuplicated: 0, runId: -1, durationMs: 0 });
     return;
   }
 
@@ -81,7 +64,6 @@ router.post("/scheduler/trigger", async (req, res): Promise<void> => {
   const runId = runRecord!.id;
 
   try {
-    // Fetch enabled keywords and sources
     const [keywords, sources] = await Promise.all([
       db.select().from(keywordsTable).where(eq(keywordsTable.enabled, true)),
       db.select().from(sourcesTable).where(eq(sourcesTable.enabled, true)),
@@ -93,14 +75,12 @@ router.post("/scheduler/trigger", async (req, res): Promise<void> => {
         .update(schedulerRunsTable)
         .set({ status: "completed", jobsFound: 0, jobsAdded: 0, jobsDuplicated: 0, finishedAt: new Date(), durationMs })
         .where(eq(schedulerRunsTable.id, runId));
-
       isScanning = false;
       lastRunAt = new Date();
       res.json({ jobsFound: 0, jobsAdded: 0, jobsDuplicated: 0, runId, durationMs });
       return;
     }
 
-    // Simulate job discovery from public RSS sources
     const discoveredJobs = await discoverJobs(keywords.map((k) => k.term), sources);
 
     let jobsAdded = 0;
@@ -146,7 +126,6 @@ router.post("/scheduler/trigger", async (req, res): Promise<void> => {
         relevanceScore: aiResult?.relevanceScore,
       });
 
-      // Update source stats
       await db
         .update(sourcesTable)
         .set({
@@ -163,14 +142,7 @@ router.post("/scheduler/trigger", async (req, res): Promise<void> => {
 
     await db
       .update(schedulerRunsTable)
-      .set({
-        status: "completed",
-        jobsFound: discoveredJobs.length,
-        jobsAdded,
-        jobsDuplicated,
-        finishedAt: lastRunAt,
-        durationMs,
-      })
+      .set({ status: "completed", jobsFound: discoveredJobs.length, jobsAdded, jobsDuplicated, finishedAt: lastRunAt, durationMs })
       .where(eq(schedulerRunsTable.id, runId));
 
     isScanning = false;
@@ -179,17 +151,10 @@ router.post("/scheduler/trigger", async (req, res): Promise<void> => {
     const durationMs = Date.now() - runStart;
     const errorMessage = err instanceof Error ? err.message : String(err);
     logger.error({ err }, "Scan failed");
-
     await db
       .update(schedulerRunsTable)
-      .set({
-        status: "failed",
-        finishedAt: new Date(),
-        durationMs,
-        errorMessage,
-      })
+      .set({ status: "failed", finishedAt: new Date(), durationMs, errorMessage })
       .where(eq(schedulerRunsTable.id, runId));
-
     isScanning = false;
     res.status(500).json({ error: errorMessage });
   }
@@ -209,7 +174,7 @@ router.get("/scheduler/runs", async (req, res): Promise<void> => {
   res.json(runs);
 });
 
-// ── Job discovery helpers ─────────────────────────────────────────────────────
+// ── Job discovery ─────────────────────────────────────────────────────────────
 
 interface RawJob {
   title: string;
@@ -230,7 +195,6 @@ async function discoverJobs(
   sources: Array<{ slug: string; type: string; url: string | null; name: string }>,
 ): Promise<RawJob[]> {
   const jobs: RawJob[] = [];
-
   for (const source of sources) {
     if (source.type === "rss" && source.url) {
       try {
@@ -241,7 +205,6 @@ async function discoverJobs(
       }
     }
   }
-
   return jobs;
 }
 
@@ -254,43 +217,72 @@ async function fetchRssJobs(
   const timeout = setTimeout(() => controller.abort(), 10000);
 
   try {
-    const response = await fetch(url, { signal: controller.signal });
+    const response = await fetch(url, {
+      signal: controller.signal,
+      headers: { "User-Agent": "JobScout/1.0 (RSS reader)" },
+    });
     clearTimeout(timeout);
-
     if (!response.ok) return [];
 
     const xml = await response.text();
     const jobs: RawJob[] = [];
-
-    // Simple XML item extraction
     const items = xml.match(/<item[^>]*>[\s\S]*?<\/item>/gi) ?? [];
 
-    for (const item of items.slice(0, 10)) {
-      const title = extractXmlTag(item, "title");
-      const link = extractXmlTag(item, "link");
-      const description = extractXmlTag(item, "description");
+    for (const item of items.slice(0, 30)) {
+      const rawTitle = extractXmlTag(item, "title");
+      const link = extractXmlTag(item, "link") ?? extractXmlTag(item, "guid");
+      const rawDescription = extractXmlTag(item, "description");
       const pubDate = extractXmlTag(item, "pubDate");
 
-      if (!title || !link) continue;
+      if (!rawTitle || !link) continue;
 
       // Filter by keywords
+      const titleLow = rawTitle.toLowerCase();
+      const descLow = (rawDescription ?? "").toLowerCase();
       const matchesKeyword = keywords.some(
-        (kw) =>
-          title.toLowerCase().includes(kw.toLowerCase()) ||
-          (description?.toLowerCase().includes(kw.toLowerCase()) ?? false),
+        (kw) => titleLow.includes(kw.toLowerCase()) || descLow.includes(kw.toLowerCase()),
       );
-
       if (!matchesKeyword) continue;
 
+      // Source-specific structured fields (We Work Remotely provides these)
+      const region    = extractXmlTag(item, "region");
+      const jobType   = extractXmlTag(item, "type");
+
+      const cleanTitle = cleanHtml(rawTitle);
+      const company    = extractCompanyFromTitle(cleanTitle) ?? "Unknown Company";
+      // Strip "Company: " prefix to get clean title
+      const jobTitle   = cleanTitle.replace(/^[^:]+:\s*/, "").trim() || cleanTitle;
+
+      const descText   = rawDescription ? cleanHtml(rawDescription) : "";
+      const salary     = extractSalary(descText) ?? extractSalary(cleanTitle) ?? undefined;
+
+      // Location / remote
+      const locationRaw = region ?? extractLocation(descText);
+      const isRemote =
+        (locationRaw?.toLowerCase().includes("anywhere") ?? false) ||
+        (locationRaw?.toLowerCase().includes("worldwide") ?? false) ||
+        (locationRaw?.toLowerCase().includes("remote") ?? false) ||
+        titleLow.includes("remote") ||
+        descLow.includes("fully remote");
+
+      // Keep location if it's a real place, not just "Anywhere in the World"
+      const isGlobalRegion = locationRaw
+        ? /anywhere|worldwide|global/i.test(locationRaw)
+        : false;
+      const location = locationRaw && !isGlobalRegion ? locationRaw : undefined;
+
       jobs.push({
-        title: cleanHtml(title),
-        company: extractCompanyFromTitle(title) ?? "Unknown Company",
+        title: jobTitle,
+        company,
         source: sourceSlug,
         url: link,
-        description: description ? cleanHtml(description).slice(0, 5000) : undefined,
-        remote: title.toLowerCase().includes("remote") || description?.toLowerCase().includes("remote"),
+        description: descText.slice(0, 5000) || undefined,
+        salary,
+        location,
+        employmentType: jobType ?? undefined,
+        remote: isRemote,
         postedAt: pubDate ?? undefined,
-        tags: extractTags(title + " " + (description ?? ""), keywords),
+        tags: keywords.filter((kw) => titleLow.includes(kw.toLowerCase()) || descLow.includes(kw.toLowerCase())),
       });
     }
 
@@ -301,27 +293,61 @@ async function fetchRssJobs(
   }
 }
 
+// ── Parsing helpers ───────────────────────────────────────────────────────────
+
 function extractXmlTag(xml: string, tag: string): string | null {
-  const match = xml.match(new RegExp(`<${tag}[^>]*><!\\[CDATA\\[([\\s\\S]*?)\\]\\]><\\/${tag}>`, "i")) ??
-    xml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i"));
+  const cdataRe = new RegExp(`<${tag}[^>]*><!\\[CDATA\\[([\\s\\S]*?)\\]\\]><\\/${tag}>`, "i");
+  const plainRe = new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i");
+  const match = xml.match(cdataRe) ?? xml.match(plainRe);
   return match?.[1]?.trim() ?? null;
 }
 
 function cleanHtml(html: string): string {
-  return html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  return html
+    .replace(/<br\s*\/?>/gi, " ")
+    .replace(/<\/p>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&#\d+;/g, " ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
 }
 
 function extractCompanyFromTitle(title: string): string | null {
-  const atMatch = title.match(/ at (.+?)(?:\s*[-–]|$)/i);
+  // "Company: Job Title" (We Work Remotely)
+  const colonMatch = title.match(/^([^:]{2,60}):\s*.+/);
+  if (colonMatch) return colonMatch[1].trim();
+  // "Job Title at Company" (Remote OK)
+  const atMatch = title.match(/\bat\s+([A-Z][^–\-,\n]{2,50})(?:\s*[-–,]|$)/);
   if (atMatch) return atMatch[1].trim();
-  const dashMatch = title.match(/ [-–] (.+)$/);
-  if (dashMatch) return dashMatch[1].trim();
   return null;
 }
 
-function extractTags(text: string, keywords: string[]): string[] {
-  const lower = text.toLowerCase();
-  return keywords.filter((kw) => lower.includes(kw.toLowerCase()));
+function extractSalary(text: string): string | null {
+  const patterns: RegExp[] = [
+    /\$[\d,]+[kK]?\s*[-–to]+\s*\$[\d,]+[kK]?/,
+    /USD\s*[\d,]+[kK]?\s*[-–to]+\s*[\d,]+[kK]?/i,
+    /\$[\d,]{4,}(?:\s*[-–]\s*\$[\d,]+)?/,
+    /[\d]+[kK]\s*[-–]\s*[\d]+[kK]\s*(?:USD|per\s+year|\/yr)/i,
+  ];
+  for (const re of patterns) {
+    const m = text.match(re);
+    if (m) return m[0].trim();
+  }
+  return null;
+}
+
+function extractLocation(text: string): string | null {
+  // "Headquarters: City, State"
+  const hqMatch = text.match(/Headquarters?:\s*([^\n]{2,60})/i);
+  if (hqMatch) return hqMatch[1].split(/[,\n]/)[0]?.trim() ?? null;
+  // "Location: ..."
+  const locMatch = text.match(/Location:\s*([^\n]{2,60})/i);
+  if (locMatch) return locMatch[1].split(/[,\n]/)[0]?.trim() ?? null;
+  return null;
 }
 
 export default router;

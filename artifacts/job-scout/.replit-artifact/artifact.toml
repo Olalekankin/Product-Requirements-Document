@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Job Scout"
+version = "1.0.0"
+id = "artifacts/job-scout"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25906
+
+[services.development]
+run = "pnpm --filter @workspace/job-scout run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/job-scout", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/job-scout/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25906"
+BASE_PATH = "/"

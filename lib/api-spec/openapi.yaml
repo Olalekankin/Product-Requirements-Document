@@ -3,13 +3,29 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: Job Scout API specification
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: jobs
+    description: Job listings
+  - name: keywords
+    description: Search keywords management
+  - name: sources
+    description: Job sources / connectors
+  - name: settings
+    description: User configuration and filters
+  - name: notes
+    description: Notes on job listings
+  - name: social
+    description: Social post generation
+  - name: scheduler
+    description: Scheduler management and run history
+  - name: stats
+    description: Dashboard statistics
 paths:
   /healthz:
     get:
@@ -24,6 +40,578 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  # ─── Jobs ────────────────────────────────────────────────────────────────────
+
+  /jobs:
+    get:
+      operationId: listJobs
+      tags: [jobs]
+      summary: List all jobs with optional filters
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [new, interested, applied, rejected, ignored, saved, archived]
+        - name: source
+          in: query
+          schema:
+            type: ["string", "null"]
+        - name: search
+          in: query
+          schema:
+            type: ["string", "null"]
+        - name: minRelevance
+          in: query
+          schema:
+            type: ["integer", "null"]
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+            enum: [postedAt, relevanceScore, createdAt, title, company]
+            default: createdAt
+        - name: sortDir
+          in: query
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: desc
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+        - name: favorite
+          in: query
+          schema:
+            type: ["boolean", "null"]
+        - name: employmentType
+          in: query
+          schema:
+            type: ["string", "null"]
+      responses:
+        "200":
+          description: List of jobs
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobListResponse"
+
+  /jobs/{id}:
+    get:
+      operationId: getJob
+      tags: [jobs]
+      summary: Get a single job by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Job detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobDetail"
+        "404":
+          description: Not found
+    patch:
+      operationId: updateJob
+      tags: [jobs]
+      summary: Update job status, notes, or favorite
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JobUpdate"
+      responses:
+        "200":
+          description: Updated job
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+    delete:
+      operationId: deleteJob
+      tags: [jobs]
+      summary: Delete a job
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /jobs/{id}/summarize:
+    post:
+      operationId: summarizeJob
+      tags: [jobs]
+      summary: Re-run AI summarization for a job
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Updated job with new AI summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+
+  # ─── Stats ───────────────────────────────────────────────────────────────────
+
+  /stats:
+    get:
+      operationId: getDashboardStats
+      tags: [stats]
+      summary: Get dashboard summary stats
+      responses:
+        "200":
+          description: Dashboard statistics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardStats"
+
+  /stats/recent-activity:
+    get:
+      operationId: getRecentActivity
+      tags: [stats]
+      summary: Recent jobs discovered and status changes
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 10
+      responses:
+        "200":
+          description: Recent activity
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ActivityItem"
+
+  /stats/by-source:
+    get:
+      operationId: getJobsBySource
+      tags: [stats]
+      summary: Job counts grouped by source
+      responses:
+        "200":
+          description: Counts by source
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/SourceCount"
+
+  /stats/by-status:
+    get:
+      operationId: getJobsByStatus
+      tags: [stats]
+      summary: Job counts grouped by status
+      responses:
+        "200":
+          description: Counts by status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/StatusCount"
+
+  # ─── Keywords ────────────────────────────────────────────────────────────────
+
+  /keywords:
+    get:
+      operationId: listKeywords
+      tags: [keywords]
+      summary: List all search keywords
+      responses:
+        "200":
+          description: List of keywords
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Keyword"
+    post:
+      operationId: createKeyword
+      tags: [keywords]
+      summary: Add a new search keyword
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/KeywordInput"
+      responses:
+        "201":
+          description: Created keyword
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Keyword"
+
+  /keywords/{id}:
+    patch:
+      operationId: updateKeyword
+      tags: [keywords]
+      summary: Update a keyword
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/KeywordUpdate"
+      responses:
+        "200":
+          description: Updated keyword
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Keyword"
+    delete:
+      operationId: deleteKeyword
+      tags: [keywords]
+      summary: Delete a keyword
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  # ─── Sources ─────────────────────────────────────────────────────────────────
+
+  /sources:
+    get:
+      operationId: listSources
+      tags: [sources]
+      summary: List all job sources
+      responses:
+        "200":
+          description: List of sources
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Source"
+    post:
+      operationId: createSource
+      tags: [sources]
+      summary: Add a custom job source
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SourceInput"
+      responses:
+        "201":
+          description: Created source
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Source"
+
+  /sources/{id}:
+    patch:
+      operationId: updateSource
+      tags: [sources]
+      summary: Update a source (toggle enabled, update config)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SourceUpdate"
+      responses:
+        "200":
+          description: Updated source
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Source"
+    delete:
+      operationId: deleteSource
+      tags: [sources]
+      summary: Delete a custom source
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  # ─── Settings ────────────────────────────────────────────────────────────────
+
+  /settings:
+    get:
+      operationId: getSettings
+      tags: [settings]
+      summary: Get all user settings
+      responses:
+        "200":
+          description: Settings
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Settings"
+    patch:
+      operationId: updateSettings
+      tags: [settings]
+      summary: Update user settings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SettingsUpdate"
+      responses:
+        "200":
+          description: Updated settings
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Settings"
+
+  # ─── Notes ───────────────────────────────────────────────────────────────────
+
+  /jobs/{jobId}/notes:
+    get:
+      operationId: listNotes
+      tags: [notes]
+      summary: List notes for a job
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of notes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Note"
+    post:
+      operationId: createNote
+      tags: [notes]
+      summary: Add a note to a job
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NoteInput"
+      responses:
+        "201":
+          description: Created note
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Note"
+
+  /jobs/{jobId}/notes/{id}:
+    patch:
+      operationId: updateNote
+      tags: [notes]
+      summary: Update a note
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NoteUpdate"
+      responses:
+        "200":
+          description: Updated note
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Note"
+    delete:
+      operationId: deleteNote
+      tags: [notes]
+      summary: Delete a note
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  # ─── Social Posts ─────────────────────────────────────────────────────────────
+
+  /jobs/{jobId}/social-post:
+    get:
+      operationId: getSocialPost
+      tags: [social]
+      summary: Get generated social post for a job
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Social post
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SocialPost"
+        "404":
+          description: Not generated yet
+    post:
+      operationId: generateSocialPost
+      tags: [social]
+      summary: Generate a social post for a job using AI
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SocialPostRequest"
+      responses:
+        "200":
+          description: Generated social post
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SocialPost"
+
+  # ─── Scheduler ───────────────────────────────────────────────────────────────
+
+  /scheduler/status:
+    get:
+      operationId: getSchedulerStatus
+      tags: [scheduler]
+      summary: Get current scheduler status and next run time
+      responses:
+        "200":
+          description: Scheduler status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SchedulerStatus"
+
+  /scheduler/trigger:
+    post:
+      operationId: triggerScan
+      tags: [scheduler]
+      summary: Manually trigger a job scan
+      responses:
+        "200":
+          description: Scan started or result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ScanResult"
+
+  /scheduler/runs:
+    get:
+      operationId: listSchedulerRuns
+      tags: [scheduler]
+      summary: List recent scheduler run history
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        "200":
+          description: Scheduler run history
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/SchedulerRun"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +622,457 @@ components:
       required:
         - status
 
+    # ── Jobs ──────────────────────────────────────────────────────────────────
+
+    Job:
+      type: object
+      required: [id, title, company, source, url, status, relevanceScore, createdAt]
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        company:
+          type: string
+        source:
+          type: string
+        url:
+          type: string
+        status:
+          type: string
+          enum: [new, interested, applied, rejected, ignored, saved, archived]
+        relevanceScore:
+          type: ["integer", "null"]
+        salary:
+          type: ["string", "null"]
+        location:
+          type: ["string", "null"]
+        employmentType:
+          type: ["string", "null"]
+        remote:
+          type: ["boolean", "null"]
+        postedAt:
+          type: ["string", "null"]
+        tags:
+          type: array
+          items:
+            type: string
+        favorite:
+          type: boolean
+        aiSummary:
+          type: ["string", "null"]
+        aiRequirements:
+          type: ["string", "null"]
+        aiWhyFits:
+          type: ["string", "null"]
+        aiSeniority:
+          type: ["string", "null"]
+        aiTechnologies:
+          type: array
+          items:
+            type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+
+    JobDetail:
+      allOf:
+        - $ref: "#/components/schemas/Job"
+        - type: object
+          properties:
+            description:
+              type: ["string", "null"]
+            notes:
+              type: array
+              items:
+                $ref: "#/components/schemas/Note"
+            socialPost:
+              oneOf:
+                - $ref: "#/components/schemas/SocialPost"
+                - type: "null"
+
+    JobUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [new, interested, applied, rejected, ignored, saved, archived]
+        favorite:
+          type: boolean
+
+    JobListResponse:
+      type: object
+      required: [jobs, total, page, limit]
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: "#/components/schemas/Job"
+        total:
+          type: integer
+        page:
+          type: integer
+        limit:
+          type: integer
+
+    # ── Stats ─────────────────────────────────────────────────────────────────
+
+    DashboardStats:
+      type: object
+      required: [totalJobs, newJobs, interestedJobs, appliedJobs, topSources, averageRelevance, jobsThisWeek]
+      properties:
+        totalJobs:
+          type: integer
+        newJobs:
+          type: integer
+        interestedJobs:
+          type: integer
+        appliedJobs:
+          type: integer
+        topSources:
+          type: array
+          items:
+            $ref: "#/components/schemas/SourceCount"
+        averageRelevance:
+          type: ["number", "null"]
+        jobsThisWeek:
+          type: integer
+        lastScanAt:
+          type: ["string", "null"]
+
+    ActivityItem:
+      type: object
+      required: [id, type, jobTitle, company, timestamp]
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+          enum: [discovered, status_changed, summarized, favorited]
+        jobTitle:
+          type: string
+        company:
+          type: string
+        jobId:
+          type: integer
+        meta:
+          type: ["string", "null"]
+        timestamp:
+          type: string
+
+    SourceCount:
+      type: object
+      required: [source, count]
+      properties:
+        source:
+          type: string
+        count:
+          type: integer
+
+    StatusCount:
+      type: object
+      required: [status, count]
+      properties:
+        status:
+          type: string
+        count:
+          type: integer
+
+    # ── Keywords ──────────────────────────────────────────────────────────────
+
+    Keyword:
+      type: object
+      required: [id, term, enabled, createdAt]
+      properties:
+        id:
+          type: integer
+        term:
+          type: string
+        enabled:
+          type: boolean
+        createdAt:
+          type: string
+
+    KeywordInput:
+      type: object
+      required: [term]
+      properties:
+        term:
+          type: string
+          minLength: 1
+        enabled:
+          type: boolean
+
+    KeywordUpdate:
+      type: object
+      properties:
+        term:
+          type: string
+          minLength: 1
+        enabled:
+          type: boolean
+
+    # ── Sources ───────────────────────────────────────────────────────────────
+
+    Source:
+      type: object
+      required: [id, name, slug, enabled, type, createdAt]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+          enum: [rss, api, scraper, manual]
+        url:
+          type: ["string", "null"]
+        enabled:
+          type: boolean
+        lastScannedAt:
+          type: ["string", "null"]
+        jobsFound:
+          type: integer
+        createdAt:
+          type: string
+
+    SourceInput:
+      type: object
+      required: [name, slug, type]
+      properties:
+        name:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+          enum: [rss, api, scraper, manual]
+        url:
+          type: ["string", "null"]
+        enabled:
+          type: boolean
+
+    SourceUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        enabled:
+          type: boolean
+        url:
+          type: ["string", "null"]
+
+    # ── Settings ──────────────────────────────────────────────────────────────
+
+    Settings:
+      type: object
+      required: [id, schedulerFrequency, remoteOnly, minRelevanceNotify, minSalary, excludedKeywords, requiredTechnologies, blacklistedCompanies, whitelistedCompanies, employmentTypes, experienceLevels, postedWithinDays, emailNotifications, inAppNotifications, updatedAt]
+      properties:
+        id:
+          type: integer
+        schedulerFrequency:
+          type: string
+          enum: [15min, 1hour, 2xdaily, daily, manual]
+        remoteOnly:
+          type: boolean
+        minRelevanceNotify:
+          type: integer
+        minSalary:
+          type: ["integer", "null"]
+        excludedKeywords:
+          type: array
+          items:
+            type: string
+        requiredTechnologies:
+          type: array
+          items:
+            type: string
+        blacklistedCompanies:
+          type: array
+          items:
+            type: string
+        whitelistedCompanies:
+          type: array
+          items:
+            type: string
+        employmentTypes:
+          type: array
+          items:
+            type: string
+        experienceLevels:
+          type: array
+          items:
+            type: string
+        postedWithinDays:
+          type: ["integer", "null"]
+        emailNotifications:
+          type: boolean
+        inAppNotifications:
+          type: boolean
+        updatedAt:
+          type: string
+
+    SettingsUpdate:
+      type: object
+      properties:
+        schedulerFrequency:
+          type: string
+          enum: [15min, 1hour, 2xdaily, daily, manual]
+        remoteOnly:
+          type: boolean
+        minRelevanceNotify:
+          type: integer
+        minSalary:
+          type: ["integer", "null"]
+        excludedKeywords:
+          type: array
+          items:
+            type: string
+        requiredTechnologies:
+          type: array
+          items:
+            type: string
+        blacklistedCompanies:
+          type: array
+          items:
+            type: string
+        whitelistedCompanies:
+          type: array
+          items:
+            type: string
+        employmentTypes:
+          type: array
+          items:
+            type: string
+        experienceLevels:
+          type: array
+          items:
+            type: string
+        postedWithinDays:
+          type: ["integer", "null"]
+        emailNotifications:
+          type: boolean
+        inAppNotifications:
+          type: boolean
+
+    # ── Notes ─────────────────────────────────────────────────────────────────
+
+    Note:
+      type: object
+      required: [id, jobId, content, createdAt]
+      properties:
+        id:
+          type: integer
+        jobId:
+          type: integer
+        content:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+
+    NoteInput:
+      type: object
+      required: [content]
+      properties:
+        content:
+          type: string
+          minLength: 1
+
+    NoteUpdate:
+      type: object
+      properties:
+        content:
+          type: string
+          minLength: 1
+
+    # ── Social Posts ──────────────────────────────────────────────────────────
+
+    SocialPost:
+      type: object
+      required: [id, jobId, platform, content, createdAt]
+      properties:
+        id:
+          type: integer
+        jobId:
+          type: integer
+        platform:
+          type: string
+          enum: [twitter, linkedin, threads, bluesky]
+        content:
+          type: string
+        tone:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    SocialPostRequest:
+      type: object
+      required: [platform]
+      properties:
+        platform:
+          type: string
+          enum: [twitter, linkedin, threads, bluesky]
+        tone:
+          type: string
+          enum: [applying, interesting, sharing]
+
+    # ── Scheduler ─────────────────────────────────────────────────────────────
+
+    SchedulerStatus:
+      type: object
+      required: [isRunning, frequency, lastRunAt, nextRunAt]
+      properties:
+        isRunning:
+          type: boolean
+        frequency:
+          type: string
+        lastRunAt:
+          type: ["string", "null"]
+        nextRunAt:
+          type: ["string", "null"]
+        totalRunsToday:
+          type: integer
+
+    ScanResult:
+      type: object
+      required: [jobsFound, jobsAdded, jobsDuplicated, runId]
+      properties:
+        jobsFound:
+          type: integer
+        jobsAdded:
+          type: integer
+        jobsDuplicated:
+          type: integer
+        runId:
+          type: integer
+        durationMs:
+          type: integer
+
+    SchedulerRun:
+      type: object
+      required: [id, startedAt, status, jobsFound, jobsAdded]
+      properties:
+        id:
+          type: integer
+        startedAt:
+          type: string
+        finishedAt:
+          type: ["string", "null"]
+        status:
+          type: string
+          enum: [running, completed, failed]
+        jobsFound:
+          type: integer
+        jobsAdded:
+          type: integer
+        jobsDuplicated:
+          type: integer
+        errorMessage:
+          type: ["string", "null"]
+        durationMs:
+          type: ["integer", "null"]

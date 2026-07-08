@@ -4,10 +4,11 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Card, Button, Badge, Input } from "@/components/ui/core";
 import { formatTimeAgo } from "@/lib/utils";
 import { getStatusColor, getStatusLabel, getRelevanceColor } from "@/lib/formatters";
-import { Search, MapPin, DollarSign, Building, Star, Check, X, SlidersHorizontal, ChevronRight, ChevronLeft, ExternalLink, Wifi, MapPinOff } from "lucide-react";
+import { Search, MapPin, DollarSign, Building, Star, Check, X, SlidersHorizontal, ChevronRight, ChevronLeft, ExternalLink, Wifi, MapPinOff, Share2 } from "lucide-react";
 import { Link } from "wouter";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
+import { ShareModal } from "@/components/ShareModal";
 
 export default function JobsFeed() {
   const queryClient = useQueryClient();
@@ -15,6 +16,7 @@ export default function JobsFeed() {
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<JobStatus | "">("");
+  const [shareJob, setShareJob] = useState<{ id: number; title: string; url: string } | null>(null);
 
   // Simple debounce
   React.useEffect(() => {
@@ -109,6 +111,7 @@ export default function JobsFeed() {
                 job={job} 
                 onStatusChange={handleStatusChange}
                 onFavoriteToggle={handleFavoriteToggle}
+                onShare={() => setShareJob({ id: job.id, title: job.title, url: job.url })}
               />
             ))}
             
@@ -140,6 +143,16 @@ export default function JobsFeed() {
           </div>
         )}
       </div>
+
+      {/* Share modal */}
+      {shareJob && (
+        <ShareModal
+          jobId={shareJob.id}
+          jobTitle={shareJob.title}
+          jobUrl={shareJob.url}
+          onClose={() => setShareJob(null)}
+        />
+      )}
     </div>
   );
 }
@@ -148,7 +161,7 @@ function BriefcaseIcon(props: any) {
   return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinelinejoin="round" {...props}><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>;
 }
 
-function JobCard({ job, onStatusChange, onFavoriteToggle }: { job: any, onStatusChange: (id: number, s: JobStatus) => void, onFavoriteToggle: (id: number, f: boolean) => void }) {
+function JobCard({ job, onStatusChange, onFavoriteToggle, onShare }: { job: any, onStatusChange: (id: number, s: JobStatus) => void, onFavoriteToggle: (id: number, f: boolean) => void, onShare: () => void }) {
   return (
     <Card className="p-0 overflow-hidden group hover:border-primary/50 transition-colors">
       <div className="p-5">
@@ -245,6 +258,15 @@ function JobCard({ job, onStatusChange, onFavoriteToggle }: { job: any, onStatus
               </Button>
             )}
           </div>
+
+          {/* Share button */}
+          <button
+            onClick={(e) => { e.stopPropagation(); onShare(); }}
+            title="Share to social media"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors shrink-0"
+          >
+            <Share2 className="w-3.5 h-3.5" /> Share
+          </button>
 
           {/* Apply link — always visible */}
           <a

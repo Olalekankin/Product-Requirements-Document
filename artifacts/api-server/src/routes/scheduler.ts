@@ -4,6 +4,7 @@ import { db, schedulerRunsTable, jobsTable, sourcesTable, keywordsTable, setting
 import { ListSchedulerRunsQueryParams } from "@workspace/api-zod";
 import { summarizeJob } from "../lib/gemini";
 import { logger } from "../lib/logger";
+import { publishDuePosts } from "./social-connections";
 
 const router = Router();
 
@@ -146,6 +147,10 @@ router.post("/scheduler/trigger", async (_req, res): Promise<void> => {
       .where(eq(schedulerRunsTable.id, runId));
 
     isScanning = false;
+
+    // Fire any scheduled social posts that are now due
+    publishDuePosts().catch((err) => logger.warn({ err }, "publishDuePosts failed"));
+
     res.json({ jobsFound: discoveredJobs.length, jobsAdded, jobsDuplicated, runId, durationMs });
   } catch (err) {
     const durationMs = Date.now() - runStart;

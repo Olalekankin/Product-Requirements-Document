@@ -8,6 +8,8 @@ import settingsRouter from "./settings";
 import notesRouter from "./notes";
 import socialRouter from "./social";
 import schedulerRouter from "./scheduler";
+import authRouter from "./auth";
+import socialConnectionsRouter from "./social-connections";
 
 const router: IRouter = Router();
 
@@ -20,5 +22,7 @@ router.use(settingsRouter);
 router.use(notesRouter);
 router.use(socialRouter);
 router.use(schedulerRouter);
+router.use(authRouter);
+router.use(socialConnectionsRouter);
 
 export default router;

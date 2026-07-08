@@ -26,6 +26,10 @@ tags:
     description: Scheduler management and run history
   - name: stats
     description: Dashboard statistics
+  - name: social-connections
+    description: OAuth social media connections
+  - name: scheduled-posts
+    description: Scheduled social media posts
 paths:
   /healthz:
     get:
@@ -612,6 +616,120 @@ paths:
                 items:
                   $ref: "#/components/schemas/SchedulerRun"
 
+  # ── Social Connections ────────────────────────────────────────────────────────
+
+  /social-connections:
+    get:
+      operationId: listSocialConnections
+      tags: [social-connections]
+      summary: List connected social accounts
+      responses:
+        "200":
+          description: List of connections (tokens omitted)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/SocialConnection"
+
+  /social-connections/{id}:
+    delete:
+      operationId: deleteSocialConnection
+      tags: [social-connections]
+      summary: Disconnect a social account
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Disconnected
+
+  /social-connections/{id}/publish:
+    post:
+      operationId: publishNow
+      tags: [social-connections]
+      summary: Post content immediately to a connected account
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PublishRequest"
+      responses:
+        "200":
+          description: Published
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublishResult"
+
+  /social-connections/{id}/schedule:
+    post:
+      operationId: schedulePost
+      tags: [social-connections]
+      summary: Schedule a post for a future time
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ScheduleRequest"
+      responses:
+        "200":
+          description: Scheduled post
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ScheduledPost"
+
+  # ── Scheduled Posts ───────────────────────────────────────────────────────────
+
+  /scheduled-posts:
+    get:
+      operationId: listScheduledPosts
+      tags: [scheduled-posts]
+      summary: List all scheduled posts
+      responses:
+        "200":
+          description: Scheduled posts list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ScheduledPost"
+
+  /scheduled-posts/{id}:
+    delete:
+      operationId: cancelScheduledPost
+      tags: [scheduled-posts]
+      summary: Cancel a pending scheduled post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Cancelled
+
 components:
   schemas:
     HealthStatus:
@@ -1076,3 +1194,83 @@ components:
           type: ["string", "null"]
         durationMs:
           type: ["integer", "null"]
+
+    # ── Social Connections ─────────────────────────────────────────────────────
+
+    SocialConnection:
+      type: object
+      required: [id, platform, handle, connectedAt]
+      properties:
+        id:
+          type: integer
+        platform:
+          type: string
+          enum: [twitter, linkedin]
+        handle:
+          type: string
+        platformUserId:
+          type: ["string", "null"]
+        tokenExpiry:
+          type: ["string", "null"]
+        connectedAt:
+          type: string
+
+    PublishRequest:
+      type: object
+      required: [content]
+      properties:
+        content:
+          type: string
+        jobId:
+          type: ["integer", "null"]
+
+    PublishResult:
+      type: object
+      required: [success]
+      properties:
+        success:
+          type: boolean
+        platformPostId:
+          type: ["string", "null"]
+        platform:
+          type: ["string", "null"]
+
+    ScheduleRequest:
+      type: object
+      required: [content, scheduledAt]
+      properties:
+        content:
+          type: string
+        scheduledAt:
+          type: string
+          description: ISO 8601 datetime string (must be in the future)
+        jobId:
+          type: ["integer", "null"]
+
+    ScheduledPost:
+      type: object
+      required: [id, platform, content, scheduledAt, status, createdAt]
+      properties:
+        id:
+          type: integer
+        jobId:
+          type: ["integer", "null"]
+        connectionId:
+          type: ["integer", "null"]
+        platform:
+          type: string
+        content:
+          type: string
+        scheduledAt:
+          type: string
+        status:
+          type: string
+          enum: [pending, posted, failed, cancelled]
+        platformPostId:
+          type: ["string", "null"]
+        errorMessage:
+          type: ["string", "null"]
+        postedAt:
+          type: ["string", "null"]
+        createdAt:
+          type: string

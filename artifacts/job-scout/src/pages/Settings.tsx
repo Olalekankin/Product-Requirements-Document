@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useGetSettings, useUpdateSettings, getGetSettingsQueryKey, SettingsSchedulerFrequency } from "@workspace/api-client-react";
+import {
+  useGetSettings, useUpdateSettings, getGetSettingsQueryKey, SettingsSchedulerFrequency,
+  useListSocialConnections, useDeleteSocialConnection, getListSocialConnectionsQueryKey,
+} from "@workspace/api-client-react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Card, Button, Input, Badge } from "@/components/ui/core";
-import { Save, Plus, X, BellRing, Briefcase, Zap, ShieldAlert } from "lucide-react";
+import { Save, Plus, X, BellRing, Briefcase, Zap, ShieldAlert, Share2, Link2, Link2Off, ExternalLink, CheckCircle2 } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
+import { useLocation } from "wouter";
 
 export default function Settings() {
   const queryClient = useQueryClient();

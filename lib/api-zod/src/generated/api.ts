@@ -620,3 +620,103 @@ export const ListSchedulerRunsResponseItem = zod.object({
 export const ListSchedulerRunsResponse = zod.array(ListSchedulerRunsResponseItem)
 
 
+/**
+ * @summary List connected social accounts
+ */
+export const ListSocialConnectionsResponseItem = zod.object({
+  "id": zod.number(),
+  "platform": zod.enum(['twitter', 'linkedin']),
+  "handle": zod.string(),
+  "platformUserId": zod.string().nullish(),
+  "tokenExpiry": zod.string().nullish(),
+  "connectedAt": zod.string()
+})
+export const ListSocialConnectionsResponse = zod.array(ListSocialConnectionsResponseItem)
+
+
+/**
+ * @summary Disconnect a social account
+ */
+export const DeleteSocialConnectionParams = zod.object({
+  "id": zod.coerce.number()
+})
+
+export const DeleteSocialConnectionResponse = zod.unknown()
+
+
+/**
+ * @summary Post content immediately to a connected account
+ */
+export const PublishNowParams = zod.object({
+  "id": zod.coerce.number()
+})
+
+export const PublishNowBody = zod.object({
+  "content": zod.string(),
+  "jobId": zod.number().nullish()
+})
+
+export const PublishNowResponse = zod.object({
+  "success": zod.boolean(),
+  "platformPostId": zod.string().nullish(),
+  "platform": zod.string().nullish()
+})
+
+
+/**
+ * @summary Schedule a post for a future time
+ */
+export const SchedulePostParams = zod.object({
+  "id": zod.coerce.number()
+})
+
+export const SchedulePostBody = zod.object({
+  "content": zod.string(),
+  "scheduledAt": zod.string().describe('ISO 8601 datetime string (must be in the future)'),
+  "jobId": zod.number().nullish()
+})
+
+export const SchedulePostResponse = zod.object({
+  "id": zod.number(),
+  "jobId": zod.number().nullish(),
+  "connectionId": zod.number().nullish(),
+  "platform": zod.string(),
+  "content": zod.string(),
+  "scheduledAt": zod.string(),
+  "status": zod.enum(['pending', 'posted', 'failed', 'cancelled']),
+  "platformPostId": zod.string().nullish(),
+  "errorMessage": zod.string().nullish(),
+  "postedAt": zod.string().nullish(),
+  "createdAt": zod.string()
+})
+
+
+/**
+ * @summary List all scheduled posts
+ */
+export const ListScheduledPostsResponseItem = zod.object({
+  "id": zod.number(),
+  "jobId": zod.number().nullish(),
+  "connectionId": zod.number().nullish(),
+  "platform": zod.string(),
+  "content": zod.string(),
+  "scheduledAt": zod.string(),
+  "status": zod.enum(['pending', 'posted', 'failed', 'cancelled']),
+  "platformPostId": zod.string().nullish(),
+  "errorMessage": zod.string().nullish(),
+  "postedAt": zod.string().nullish(),
+  "createdAt": zod.string()
+})
+export const ListScheduledPostsResponse = zod.array(ListScheduledPostsResponseItem)
+
+
+/**
+ * @summary Cancel a pending scheduled post
+ */
+export const CancelScheduledPostParams = zod.object({
+  "id": zod.coerce.number()
+})
+
+export const CancelScheduledPostResponse = zod.unknown()
+
+

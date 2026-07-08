@@ -365,6 +365,76 @@ export interface SchedulerRun {
   durationMs?: number | null;
 }
 
+export type SocialConnectionPlatform = typeof SocialConnectionPlatform[keyof typeof SocialConnectionPlatform];
+
+
+export const SocialConnectionPlatform = {
+  twitter: 'twitter',
+  linkedin: 'linkedin',
+} as const;
+
+export interface SocialConnection {
+  id: number;
+  platform: SocialConnectionPlatform;
+  handle: string;
+  /** @nullable */
+  platformUserId?: string | null;
+  /** @nullable */
+  tokenExpiry?: string | null;
+  connectedAt: string;
+}
+
+export interface PublishRequest {
+  content: string;
+  /** @nullable */
+  jobId?: number | null;
+}
+
+export interface PublishResult {
+  success: boolean;
+  /** @nullable */
+  platformPostId?: string | null;
+  /** @nullable */
+  platform?: string | null;
+}
+
+export interface ScheduleRequest {
+  content: string;
+  /** ISO 8601 datetime string (must be in the future) */
+  scheduledAt: string;
+  /** @nullable */
+  jobId?: number | null;
+}
+
+export type ScheduledPostStatus = typeof ScheduledPostStatus[keyof typeof ScheduledPostStatus];
+
+
+export const ScheduledPostStatus = {
+  pending: 'pending',
+  posted: 'posted',
+  failed: 'failed',
+  cancelled: 'cancelled',
+} as const;
+
+export interface ScheduledPost {
+  id: number;
+  /** @nullable */
+  jobId?: number | null;
+  /** @nullable */
+  connectionId?: number | null;
+  platform: string;
+  content: string;
+  scheduledAt: string;
+  status: ScheduledPostStatus;
+  /** @nullable */
+  platformPostId?: string | null;
+  /** @nullable */
+  errorMessage?: string | null;
+  /** @nullable */
+  postedAt?: string | null;
+  createdAt: string;
+}
+
 export type ListJobsParams = {
 status?: ListJobsStatus;
 /**

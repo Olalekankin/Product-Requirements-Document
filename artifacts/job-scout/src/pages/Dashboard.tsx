@@ -9,12 +9,70 @@ import { toast } from "sonner";
 import { useQueryClient } from "@tanstack/react-query";
 import { Link } from "wouter";
 
+function toActivityItems(value: unknown): Array<{
+  id: string | number;
+  type: string;
+  jobTitle: string;
+  company: string;
+  jobId?: string | number | null;
+  meta?: string | null;
+  timestamp: string;
+}> {
+  if (Array.isArray(value)) {
+    return value.filter(Boolean) as Array<{
+      id: string | number;
+      type: string;
+      jobTitle: string;
+      company: string;
+      jobId?: string | number | null;
+      meta?: string | null;
+      timestamp: string;
+    }>;
+  }
+
+  if (value && typeof value === "object") {
+    const record = value as Record<string, unknown>;
+    const maybeItems = record.items;
+    if (Array.isArray(maybeItems)) {
+      return maybeItems.filter(Boolean) as Array<{
+        id: string | number;
+        type: string;
+        jobTitle: string;
+        company: string;
+        jobId?: string | number | null;
+        meta?: string | null;
+        timestamp: string;
+      }>;
+    }
+  }
+
+  return [];
+}
+
+function toStatusCounts(value: unknown): Array<{ status: string; count: number }> {
+  if (Array.isArray(value)) {
+    return value.filter(Boolean) as Array<{ status: string; count: number }>;
+  }
+
+  if (value && typeof value === "object") {
+    const record = value as Record<string, unknown>;
+    const maybeItems = record.items;
+    if (Array.isArray(maybeItems)) {
+      return maybeItems.filter(Boolean) as Array<{ status: string; count: number }>;
+    }
+  }
+
+  return [];
+}
+
 export default function Dashboard() {
   const queryClient = useQueryClient();
   const { data: stats, isLoading: statsLoading } = useGetDashboardStats();
-  const { data: activity, isLoading: activityLoading } = useGetRecentActivity({ limit: 10 });
-  const { data: statusCounts } = useGetJobsByStatus();
+  const { data: activityData, isLoading: activityLoading } = useGetRecentActivity({ limit: 10 });
+  const { data: statusCountsData } = useGetJobsByStatus();
   const triggerScan = useTriggerScan();
+  const activity = toActivityItems(activityData);
+  const statusCounts = toStatusCounts(statusCountsData);
 
   const handleTriggerScan = () => {
     toast.promise(

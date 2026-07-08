@@ -1,31 +1,45 @@
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import { config as loadEnvFile } from "dotenv";
 import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
 
-const rawPort = process.env.PORT;
+function findEnvFile(startPaths: string[]) {
+  for (const startPath of startPaths) {
+    let currentDir = path.resolve(startPath);
+    while (true) {
+      const candidate = path.join(currentDir, ".env");
+      if (fs.existsSync(candidate)) {
+        return candidate;
+      }
 
-if (!rawPort) {
-  throw new Error(
-    "PORT environment variable is required but was not provided.",
-  );
+      const parentDir = path.dirname(currentDir);
+      if (parentDir === currentDir) {
+        break;
+      }
+      currentDir = parentDir;
+    }
+  }
+
+  return path.resolve(process.cwd(), ".env");
 }
 
+const envPath = findEnvFile([process.cwd(), path.dirname(fileURLToPath(import.meta.url))]);
+loadEnvFile({ path: envPath });
+
+const rawPort = process.env.VITE_PORT ?? process.env.PORT ?? "4173";
 const port = Number(rawPort);
 
 if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
-const basePath = process.env.BASE_PATH;
-
-if (!basePath) {
-  throw new Error(
-    "BASE_PATH environment variable is required but was not provided.",
-  );
-}
+const basePath = process.env.BASE_PATH ?? "/";
 
 export default defineConfig({
   base: basePath,

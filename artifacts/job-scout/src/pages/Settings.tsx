@@ -22,7 +22,7 @@ export default function Settings() {
   }, [initialSettings]);
 
   if (isLoading || !settings) {
-    return <div className="p-8 max-w-4xl mx-auto animate-pulse"><div className="h-96 bg-muted rounded-xl"></div></div>;
+    return <div className="p-4 sm:p-8 max-w-4xl mx-auto animate-pulse"><div className="h-96 bg-muted rounded-xl"></div></div>;
   }
 
   const handleSave = () => {
@@ -68,7 +68,7 @@ export default function Settings() {
   };
 
   return (
-    <div className="p-8 max-w-5xl mx-auto pb-24">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-5xl mx-auto pb-24">
       <PageHeader 
         title="Scanner Configuration" 
         description="Fine-tune how Job Scout finds and filters opportunities."

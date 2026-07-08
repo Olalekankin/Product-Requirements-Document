@@ -58,25 +58,25 @@ export default function JobsFeed() {
   };
 
   return (
-    <div className="p-8 max-w-7xl mx-auto flex flex-col h-full">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto flex flex-col h-full">
       <PageHeader 
         title="Job Feed" 
         description="Discover, filter, and process opportunities."
       />
 
-      <div className="flex gap-4 mb-6">
-        <div className="relative flex-1 max-w-md">
+      <div className="flex flex-wrap gap-3 mb-6">
+        <div className="relative flex-1 min-w-[200px]">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input 
             placeholder="Search titles, companies, keywords..." 
-            className="pl-9"
+            className="pl-9 w-full"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         
         <select 
-          className="flex h-9 rounded-md border border-input bg-card px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          className="flex h-9 rounded-md border border-input bg-card px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring min-w-[130px]"
           value={statusFilter}
           onChange={(e) => { setStatusFilter(e.target.value as any); setPage(1); }}
         >
@@ -86,9 +86,9 @@ export default function JobsFeed() {
           ))}
         </select>
         
-        <Button variant="outline" className="gap-2">
+        <Button variant="outline" className="gap-2 shrink-0">
           <SlidersHorizontal className="w-4 h-4" />
-          More Filters
+          <span className="hidden sm:inline">More Filters</span>
         </Button>
       </div>
 
@@ -232,29 +232,29 @@ function JobCard({ job, onStatusChange, onFavoriteToggle, onShare }: { job: any,
         )}
 
         {/* Bottom row: status + source + actions + APPLY */}
-        <div className="flex items-center gap-3 mt-4 pt-3 border-t border-border/50">
+        <div className="flex flex-wrap items-center gap-2 mt-4 pt-3 border-t border-border/50">
           <Badge variant={getStatusColor(job.status)}>{getStatusLabel(job.status)}</Badge>
-          <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
+          <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider truncate">
             {job.source} • {formatTimeAgo(job.postedAt)}
           </span>
 
           <div className="flex-1" />
 
-          {/* Quick status actions — visible on hover */}
-          <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+          {/* Quick status actions — visible on hover (hidden on mobile tap) */}
+          <div className="flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
             {job.status === JobStatus.new && (
               <>
                 <Button size="sm" variant="ghost-danger" onClick={() => onStatusChange(job.id, JobStatus.ignored)}>
-                  <X className="w-3.5 h-3.5 mr-1" /> Ignore
+                  <X className="w-3.5 h-3.5 sm:mr-1" /><span className="hidden sm:inline">Ignore</span>
                 </Button>
                 <Button size="sm" variant="outline" className="border-green-200 text-green-700 hover:bg-green-50" onClick={() => onStatusChange(job.id, JobStatus.interested)}>
-                  <Check className="w-3.5 h-3.5 mr-1" /> Interested
+                  <Check className="w-3.5 h-3.5 sm:mr-1" /><span className="hidden sm:inline">Interested</span>
                 </Button>
               </>
             )}
             {job.status === JobStatus.interested && (
               <Button size="sm" className="bg-blue-600 hover:bg-blue-700" onClick={() => onStatusChange(job.id, JobStatus.applied)}>
-                <Check className="w-3.5 h-3.5 mr-1" /> Mark Applied
+                <Check className="w-3.5 h-3.5 sm:mr-1" /><span className="hidden sm:inline">Mark Applied</span>
               </Button>
             )}
           </div>
@@ -263,9 +263,9 @@ function JobCard({ job, onStatusChange, onFavoriteToggle, onShare }: { job: any,
           <button
             onClick={(e) => { e.stopPropagation(); onShare(); }}
             title="Share to social media"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors shrink-0"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors shrink-0"
           >
-            <Share2 className="w-3.5 h-3.5" /> Share
+            <Share2 className="w-3.5 h-3.5" /><span className="hidden sm:inline">Share</span>
           </button>
 
           {/* Apply link — always visible */}
@@ -274,7 +274,7 @@ function JobCard({ job, onStatusChange, onFavoriteToggle, onShare }: { job: any,
             target="_blank"
             rel="noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shrink-0"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shrink-0"
           >
             Apply <ExternalLink className="w-3.5 h-3.5" />
           </a>

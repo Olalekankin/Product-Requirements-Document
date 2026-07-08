@@ -46,7 +46,7 @@ export default function Keywords() {
   };
 
   return (
-    <div className="p-8 max-w-4xl mx-auto flex flex-col h-full">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto flex flex-col h-full">
       <PageHeader 
         title="Search Target Keywords" 
         description="Terms the scanner uses to find relevant opportunities."

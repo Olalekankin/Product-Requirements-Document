@@ -58,15 +58,15 @@ export default function JobDetail() {
   };
 
   if (isLoading) {
-    return <div className="p-8 max-w-5xl mx-auto animate-pulse"><div className="h-64 bg-muted rounded-xl"></div></div>;
+    return <div className="p-4 sm:p-8 max-w-5xl mx-auto animate-pulse"><div className="h-64 bg-muted rounded-xl"></div></div>;
   }
 
   if (!job) {
-    return <div className="p-8 text-center text-muted-foreground">Job not found</div>;
+    return <div className="p-4 sm:p-8 text-center text-muted-foreground">Job not found</div>;
   }
 
   return (
-    <div className="p-8 max-w-5xl mx-auto">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-5xl mx-auto">
       <Link href="/jobs" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground mb-6 transition-colors">
         <ArrowLeft className="w-4 h-4 mr-2" /> Back to feed
       </Link>
@@ -75,11 +75,11 @@ export default function JobDetail() {
         <div className="flex-1 space-y-8">
           {/* Header */}
           <div>
-            <div className="flex items-start justify-between gap-4 mb-4">
-              <h1 className="text-4xl font-bold tracking-tight text-foreground leading-tight">
+            <div className="flex items-start justify-between gap-3 mb-4">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-tight">
                 {job.title}
               </h1>
-              <div className="flex gap-2">
+              <div className="flex gap-2 shrink-0">
                 <Button variant="outline" size="icon" onClick={handleFavoriteToggle} className={job.favorite ? "text-yellow-500 border-yellow-200 bg-yellow-50" : ""}>
                   <Star className="w-5 h-5" fill={job.favorite ? "currentColor" : "none"} />
                 </Button>
@@ -114,7 +114,7 @@ export default function JobDetail() {
               </span>
             </div>
             
-            <div className="flex items-center gap-4 mt-6 pt-6 border-t border-border">
+            <div className="flex flex-wrap items-center gap-3 mt-6 pt-6 border-t border-border">
               <select 
                 className="flex h-9 rounded-md border border-input bg-card px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring font-medium"
                 value={job.status}

@@ -199,7 +199,7 @@ export function ShareModal({ jobId, jobTitle, jobUrl, onClose }: ShareModalProps
 
         {/* Footer actions */}
         {hasPost && (
-          <div className="flex items-center gap-2 px-5 py-4 border-t border-border bg-muted/30 rounded-b-xl">
+          <div className="flex flex-wrap items-center gap-2 px-5 py-4 border-t border-border bg-muted/30 rounded-b-xl">
             {/* Copy */}
             <Button variant="outline" size="sm" onClick={handleCopy} className="gap-1.5">
               {copied ? <Check className="w-3.5 h-3.5 text-green-600" /> : <Copy className="w-3.5 h-3.5" />}

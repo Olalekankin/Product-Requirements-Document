@@ -8,7 +8,8 @@ import {
   Terminal, 
   Hash, 
   Activity,
-  Radar
+  Radar,
+  X
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -21,23 +22,47 @@ const NAV_ITEMS = [
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 
-export function Sidebar() {
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const [location] = useLocation();
   const { data: health } = useHealthCheck({ query: { refetchInterval: 60000, queryKey: ["healthCheck"] } });
 
   const isHealthy = health?.status === "ok" || health?.status === "healthy";
 
   return (
-    <aside className="w-64 bg-sidebar text-sidebar-foreground flex flex-col h-[100dvh] border-r border-sidebar-border shadow-xl z-10 shrink-0 sticky top-0">
+    <aside
+      className={cn(
+        // Base styles
+        "w-64 bg-sidebar text-sidebar-foreground flex flex-col h-[100dvh] border-r border-sidebar-border shadow-xl z-50 shrink-0",
+        // Mobile: fixed drawer that slides in; Desktop: sticky always-visible
+        "fixed md:sticky top-0",
+        "transition-transform duration-200 ease-in-out",
+        isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+      )}
+    >
+      {/* Header */}
       <div className="h-16 flex items-center px-6 border-b border-sidebar-border gap-3 shrink-0">
         <div className="bg-primary p-1.5 rounded-md flex items-center justify-center shadow-inner">
           <Terminal className="w-5 h-5 text-primary-foreground" strokeWidth={2.5} />
         </div>
-        <span className="font-bold text-lg tracking-tight uppercase tracking-widest text-sidebar-foreground/90">
+        <span className="font-bold text-lg tracking-tight uppercase tracking-widest text-sidebar-foreground/90 flex-1">
           Job Scout
         </span>
+        {/* Close button — only visible on mobile */}
+        <button
+          onClick={onClose}
+          className="md:hidden p-1 rounded-md hover:bg-sidebar-accent transition-colors text-sidebar-foreground/60 hover:text-sidebar-foreground"
+          aria-label="Close menu"
+        >
+          <X className="w-4 h-4" />
+        </button>
       </div>
 
+      {/* Nav */}
       <div className="p-4 flex-1 overflow-y-auto">
         <div className="text-xs font-mono text-sidebar-foreground/40 mb-3 px-3 uppercase tracking-wider">
           System Menu
@@ -46,7 +71,12 @@ export function Sidebar() {
           {NAV_ITEMS.map((item) => {
             const isActive = location === item.href || (item.href !== "/" && location.startsWith(item.href));
             return (
-              <Link key={item.href} href={item.href} className="block">
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block"
+                onClick={onClose}
+              >
                 <div
                   className={cn(
                     "flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-colors cursor-pointer",
@@ -64,6 +94,7 @@ export function Sidebar() {
         </nav>
       </div>
 
+      {/* Footer */}
       <div className="p-4 border-t border-sidebar-border text-xs text-sidebar-foreground/40 font-mono flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <span>API STATUS:</span>

@@ -33,7 +33,7 @@ export default function Dashboard() {
 
   if (statsLoading || activityLoading) {
     return (
-      <div className="p-8 max-w-7xl mx-auto space-y-8 animate-pulse">
+      <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto space-y-8 animate-pulse">
         <div className="h-10 w-48 bg-muted rounded"></div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[1,2,3,4].map(i => <div key={i} className="h-32 bg-muted rounded-lg"></div>)}
@@ -43,7 +43,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="p-8 max-w-7xl mx-auto">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
       <PageHeader 
         title="Command Center" 
         description={`Last scan completed ${formatTimeAgo(stats?.lastScanAt)}`}

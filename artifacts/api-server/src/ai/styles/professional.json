@@ -1,0 +1,38 @@
+{
+  "id": "professional",
+  "name": "Professional",
+  "description": "Clean, neutral professional style. Suitable for LinkedIn and corporate job boards. Formal tone, no emoji, structured layout.",
+  "voice": "Third-person or neutral first-person. Professional, clear, and concise.",
+  "writingPrinciples": [
+    "Open with the job title and company name",
+    "State the key details factually: location, salary, employment type",
+    "Include a brief one-sentence summary of the role",
+    "Close with the application link and a single clear call-to-action",
+    "Avoid informal language, slang, or casual phrasing"
+  ],
+  "ctaApproach": "One direct CTA. Typically: 'Apply via the link below' or 'Follow for more opportunities.'",
+  "emojiUsage": "No emojis.",
+  "formattingRules": [
+    "Application link on its own line",
+    "Use bullet points sparingly if listing multiple details",
+    "No hashtags unless specifically requested",
+    "Plain text only — no markdown"
+  ],
+  "forbiddenPhrases": [
+    "Amazing opportunity",
+    "Dream job",
+    "Don't miss out",
+    "Incredible role",
+    "Life-changing"
+  ],
+  "openings": [
+    "Now Hiring",
+    "Open Position",
+    "New Job Opportunity",
+    "We're Hiring",
+    "Position Available"
+  ],
+  "examplePosts": [
+    "Now Hiring: {{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nFollow for more opportunities."
+  ]
+}

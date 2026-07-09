@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { build as esbuild } from "esbuild";
 import esbuildPluginPino from "esbuild-plugin-pino";
 import { rm } from "node:fs/promises";
+import { cpSync } from "node:fs";
 
 // Plugins (e.g. 'esbuild-plugin-pino') may use `require` to resolve dependencies
 globalThis.require = createRequire(import.meta.url);
@@ -118,6 +119,15 @@ globalThis.__dirname = __bannerPath.dirname(globalThis.__filename);
     `,
     },
   });
+
+  // Copy static assets to the dist folder so they're available relative to built output
+  const srcKnowledge = path.resolve(artifactDir, "src/ai/knowledge");
+  const destKnowledge = path.resolve(distDir, "knowledge");
+  cpSync(srcKnowledge, destKnowledge, { recursive: true });
+
+  const srcStyles = path.resolve(artifactDir, "src/ai/styles");
+  const destStyles = path.resolve(distDir, "styles");
+  cpSync(srcStyles, destStyles, { recursive: true });
 }
 
 buildAll().catch((err) => {

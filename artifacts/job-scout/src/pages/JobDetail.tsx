@@ -299,9 +299,11 @@ function SocialPostPanel({ jobId, initialPost }: { jobId: number, initialPost: a
 
   const handleGenerate = () => {
     generatePost.mutate({ jobId, data: { platform, tone } }, {
-      onSuccess: () => {
+      onSuccess: (newPost) => {
+        // Immediately populate the cache so content shows without waiting for a refetch
+        queryClient.setQueryData(getGetSocialPostQueryKey(jobId), newPost);
         queryClient.invalidateQueries({ queryKey: getGetSocialPostQueryKey(jobId) });
-        toast.success("Social post content generated");
+        toast.success("Social post generated");
       }
     });
   };
@@ -434,7 +436,17 @@ function SocialPostPanel({ jobId, initialPost }: { jobId: number, initialPost: a
             {generatePost.isPending ? "Generating..." : socialPost ? "Regenerate Draft" : "Generate Draft"}
           </Button>
 
-          {socialPost?.content && (
+          {generatePost.isPending && (
+            <div className="mt-4 pt-4 border-t border-border space-y-2 animate-pulse">
+              <div className="h-3 bg-muted rounded w-3/4" />
+              <div className="h-3 bg-muted rounded w-full" />
+              <div className="h-3 bg-muted rounded w-5/6" />
+              <div className="h-3 bg-muted rounded w-2/3" />
+              <p className="text-xs text-muted-foreground pt-1">Generating with AI…</p>
+            </div>
+          )}
+
+          {!generatePost.isPending && socialPost?.content && (
             <div className="mt-4 pt-4 border-t border-border space-y-4">
               <div className="bg-muted/50 p-3 rounded-md text-sm text-foreground whitespace-pre-wrap border border-border">
                 {socialPost.content}

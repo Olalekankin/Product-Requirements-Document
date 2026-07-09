@@ -1423,6 +1423,76 @@ export const useDeleteSource = <TError = ErrorType<unknown>,
       return useMutation(getDeleteSourceMutationOptions(options));
     }
 
+export const getAutoDiscoverSourcesUrl = () => {
+
+
+
+
+  return `/api/sources/auto-discover`
+}
+
+/**
+ * @summary Autonomous discovery of job sources
+ */
+export const autoDiscoverSources = async ( options?: RequestInit): Promise<Source[]> => {
+
+  return customFetch<Source[]>(getAutoDiscoverSourcesUrl(),
+  {
+    ...options,
+    method: 'POST'
+
+
+  }
+);}
+
+
+
+
+export const getAutoDiscoverSourcesMutationOptions = <TError = ErrorType<unknown>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof autoDiscoverSources>>, TError,void, TContext>, request?: SecondParameter<typeof customFetch>}
+): UseMutationOptions<Awaited<ReturnType<typeof autoDiscoverSources>>, TError,void, TContext> => {
+
+const mutationKey = ['autoDiscoverSources'];
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
+
+
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof autoDiscoverSources>>, void> = () => {
+
+
+          return  autoDiscoverSources(requestOptions)
+        }
+
+
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type AutoDiscoverSourcesMutationResult = NonNullable<Awaited<ReturnType<typeof autoDiscoverSources>>>
+
+    export type AutoDiscoverSourcesMutationError = ErrorType<unknown>
+
+    /**
+ * @summary Autonomous discovery of job sources
+ */
+export const useAutoDiscoverSources = <TError = ErrorType<unknown>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof autoDiscoverSources>>, TError,void, TContext>, request?: SecondParameter<typeof customFetch>}
+ ): UseMutationResult<
+        Awaited<ReturnType<typeof autoDiscoverSources>>,
+        TError,
+        void,
+        TContext
+      > => {
+      return useMutation(getAutoDiscoverSourcesMutationOptions(options));
+    }
+
 export const getGetSettingsUrl = () => {
 
 

@@ -1,0 +1,4 @@
+error TS5058: The specified path does not exist: 'artifacts/api-server/tsconfig.json'.
+undefined
+C:\Users\USER\project\Product-Requirements-Document\artifacts\api-server:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: tsc -p artifacts/api-server/tsconfig.json --noEmit --traceResolution

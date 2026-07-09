@@ -5,7 +5,7 @@ import {
 } from "@workspace/api-client-react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Card, Button, Input, Badge } from "@/components/ui/core";
-import { Save, Plus, X, BellRing, Briefcase, Zap, ShieldAlert, Share2, Link2, Link2Off, ExternalLink, CheckCircle2 } from "lucide-react";
+import { Save, Plus, X, BellRing, Briefcase, Zap, ShieldAlert, Share2, Link2, Link2Off, ExternalLink, CheckCircle2, Sparkles } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { useLocation } from "wouter";
@@ -17,6 +17,11 @@ export default function Settings() {
 
   const [settings, setSettings] = useState<any>(null);
   const initializedForId = useRef<boolean>(false);
+  const location = useLocation();
+
+  // Query social connections
+  const { data: connections, isLoading: isConnLoading } = useListSocialConnections();
+  const deleteConnection = useDeleteSocialConnection();
 
   useEffect(() => {
     if (initialSettings && !initializedForId.current) {
@@ -24,6 +29,41 @@ export default function Settings() {
       initializedForId.current = true;
     }
   }, [initialSettings]);
+
+  // Handle OAuth callback parameters in URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const connected = params.get("connected");
+    const error = params.get("error");
+
+    if (connected) {
+      toast.success(`Successfully connected ${connected.toUpperCase()}!`);
+      // Clean up URL parameters
+      window.history.replaceState({}, document.title, window.location.pathname);
+      queryClient.invalidateQueries({ queryKey: getListSocialConnectionsQueryKey() });
+    } else if (error) {
+      if (error === "twitter_denied" || error === "linkedin_denied") {
+        toast.error("Social connection request was cancelled.");
+      } else {
+        toast.error(`Connection failed: ${error.replace(/_/g, " ")}`);
+      }
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, [location, queryClient]);
+
+  const handleDisconnect = async (id: number, platform: string) => {
+    toast.promise(
+      deleteConnection.mutateAsync({ id }),
+      {
+        loading: `Disconnecting ${platform.toUpperCase()}...`,
+        success: () => {
+          queryClient.invalidateQueries({ queryKey: getListSocialConnectionsQueryKey() });
+          return `Disconnected ${platform.toUpperCase()}`;
+        },
+        error: `Failed to disconnect ${platform.toUpperCase()}`
+      }
+    );
+  };
 
   if (isLoading || !settings) {
     return <div className="p-4 sm:p-8 max-w-4xl mx-auto animate-pulse"><div className="h-96 bg-muted rounded-xl"></div></div>;
@@ -103,6 +143,7 @@ export default function Settings() {
                 >
                   <option value={SettingsSchedulerFrequency['15min']}>Every 15 minutes</option>
                   <option value={SettingsSchedulerFrequency['1hour']}>Every hour</option>
+                  <option value={SettingsSchedulerFrequency['6x_daily']}>Every 4 hours (6x daily)</option>
                   <option value={SettingsSchedulerFrequency['2xdaily']}>Twice daily</option>
                   <option value={SettingsSchedulerFrequency['daily']}>Once daily</option>
                   <option value={SettingsSchedulerFrequency.manual}>Manual only</option>
@@ -153,6 +194,170 @@ export default function Settings() {
                     value={settings.minSalary || ""}
                     onChange={(e) => updateField('minSalary', e.target.value ? parseInt(e.target.value) : null)}
                   />
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          {/* Autonomous Agents & Auto-Post Settings */}
+          <Card className="p-6 border-l-4 border-l-indigo-500">
+            <div className="flex items-center gap-2 mb-6 text-indigo-600 font-bold text-lg">
+              <Sparkles className="w-5 h-5" /> Autonomous Agents & Auto-Post
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Auto Discovery */}
+              <div className="flex items-center justify-between p-4 bg-muted/30 rounded-lg border border-border">
+                <div>
+                  <h4 className="font-bold text-foreground">Autonomous Source Discovery</h4>
+                  <p className="text-sm text-muted-foreground mt-1">Agent automatically searches and registers job sources daily</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => updateField('autoDiscoverEnabled', !settings.autoDiscoverEnabled)}
+                  className={`w-12 h-6 rounded-full transition-colors relative ${settings.autoDiscoverEnabled ? 'bg-indigo-600' : 'bg-muted-foreground/30'}`}
+                >
+                  <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-all ${settings.autoDiscoverEnabled ? 'left-7' : 'left-1'}`} />
+                </button>
+              </div>
+
+              {/* Auto Post Toggle */}
+              <div className="flex items-center justify-between p-4 bg-muted/30 rounded-lg border border-border">
+                <div>
+                  <h4 className="font-bold text-foreground">Automatic Social Posting</h4>
+                  <p className="text-sm text-muted-foreground mt-1">Auto-queue social posts for jobs above score threshold</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => updateField('autoPostEnabled', !settings.autoPostEnabled)}
+                  className={`w-12 h-6 rounded-full transition-colors relative ${settings.autoPostEnabled ? 'bg-indigo-600' : 'bg-muted-foreground/30'}`}
+                >
+                  <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-all ${settings.autoPostEnabled ? 'left-7' : 'left-1'}`} />
+                </button>
+              </div>
+            </div>
+
+            {settings.autoPostEnabled && (
+              <div className="mt-6 pt-6 border-t border-border max-w-md space-y-3">
+                <label className="text-sm font-bold text-foreground">Auto-Post Minimum Relevance Score</label>
+                <div className="flex items-center gap-4">
+                  <input
+                    type="range"
+                    min="50" max="100"
+                    value={settings.autoPostMinScore || 85}
+                    onChange={(e) => updateField('autoPostMinScore', parseInt(e.target.value))}
+                    className="flex-1 accent-indigo-600"
+                  />
+                  <div className="w-12 text-center font-bold font-mono bg-muted py-1 rounded">
+                    {settings.autoPostMinScore}
+                  </div>
+                </div>
+                <p className="text-xs text-muted-foreground">Only job opportunities matching or exceeding this relevance score will be auto-published.</p>
+              </div>
+            )}
+          </Card>
+
+          {/* Social Media Connections */}
+          <Card className="p-6 border-l-4 border-l-blue-500">
+            <div className="flex items-center gap-2 mb-2 text-blue-600 font-bold text-lg">
+              <Share2 className="w-5 h-5" /> Social Media Connections
+            </div>
+            <p className="text-sm text-muted-foreground mb-6">
+              Connect accounts to enable automated or manual publishing of job opportunities.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Twitter / X Connection */}
+              <div className="p-5 rounded-xl border border-border bg-card flex flex-col justify-between min-h-[160px]">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h4 className="font-bold text-foreground flex items-center gap-2 text-base">
+                      Twitter / X
+                      {connections?.some(c => c.platform === "twitter") ? (
+                        <Badge variant="secondary" className="bg-emerald-100 text-emerald-800 border-emerald-200">Connected</Badge>
+                      ) : (
+                        <Badge variant="outline" className="text-muted-foreground">Disconnected</Badge>
+                      )}
+                    </h4>
+                    {connections?.some(c => c.platform === "twitter") ? (
+                      <p className="text-sm text-foreground mt-2 font-mono">
+                        {connections.find(c => c.platform === "twitter")?.handle}
+                      </p>
+                    ) : (
+                      <p className="text-xs text-muted-foreground mt-2">
+                        Requires Twitter Client ID configured in workspace environment.
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div className="mt-4 pt-4 border-t border-border/50 flex justify-end">
+                  {connections?.some(c => c.platform === "twitter") ? (
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      size="sm"
+                      className="text-destructive border-destructive/20 hover:bg-destructive/10"
+                      onClick={() => handleDisconnect(connections.find(c => c.platform === "twitter")!.id, "twitter")}
+                    >
+                      <Link2Off className="w-4 h-4 mr-1.5" /> Disconnect
+                    </Button>
+                  ) : (
+                    <Button
+                      type="button"
+                      size="sm"
+                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                      onClick={() => window.location.href = "/api/auth/twitter/connect"}
+                    >
+                      <Link2 className="w-4 h-4 mr-1.5" /> Connect Twitter
+                    </Button>
+                  )}
+                </div>
+              </div>
+
+              {/* LinkedIn Connection */}
+              <div className="p-5 rounded-xl border border-border bg-card flex flex-col justify-between min-h-[160px]">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h4 className="font-bold text-foreground flex items-center gap-2 text-base">
+                      LinkedIn
+                      {connections?.some(c => c.platform === "linkedin") ? (
+                        <Badge variant="secondary" className="bg-emerald-100 text-emerald-800 border-emerald-200">Connected</Badge>
+                      ) : (
+                        <Badge variant="outline" className="text-muted-foreground">Disconnected</Badge>
+                      )}
+                    </h4>
+                    {connections?.some(c => c.platform === "linkedin") ? (
+                      <p className="text-sm text-foreground mt-2 font-mono">
+                        {connections.find(c => c.platform === "linkedin")?.handle}
+                      </p>
+                    ) : (
+                      <p className="text-xs text-muted-foreground mt-2">
+                        Requires LinkedIn Client ID and Secret configured in environment.
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div className="mt-4 pt-4 border-t border-border/50 flex justify-end">
+                  {connections?.some(c => c.platform === "linkedin") ? (
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      size="sm"
+                      className="text-destructive border-destructive/20 hover:bg-destructive/10"
+                      onClick={() => handleDisconnect(connections.find(c => c.platform === "linkedin")!.id, "linkedin")}
+                    >
+                      <Link2Off className="w-4 h-4 mr-1.5" /> Disconnect
+                    </Button>
+                  ) : (
+                    <Button
+                      type="button"
+                      size="sm"
+                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                      onClick={() => window.location.href = "/api/auth/linkedin/connect"}
+                    >
+                      <Link2 className="w-4 h-4 mr-1.5" /> Connect LinkedIn
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>

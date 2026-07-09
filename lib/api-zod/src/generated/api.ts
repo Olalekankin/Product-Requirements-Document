@@ -400,11 +400,28 @@ export const DeleteSourceResponse = zod.void()
 
 
 /**
+ * @summary Autonomous discovery of job sources
+ */
+export const AutoDiscoverSourcesResponseItem = zod.object({
+  "id": zod.number(),
+  "name": zod.string(),
+  "slug": zod.string(),
+  "type": zod.enum(['rss', 'api', 'scraper', 'manual']),
+  "url": zod.string().nullish(),
+  "enabled": zod.boolean(),
+  "lastScannedAt": zod.string().nullish(),
+  "jobsFound": zod.number().optional(),
+  "createdAt": zod.string()
+})
+export const AutoDiscoverSourcesResponse = zod.array(AutoDiscoverSourcesResponseItem)
+
+
+/**
  * @summary Get all user settings
  */
 export const GetSettingsResponse = zod.object({
   "id": zod.number(),
-  "schedulerFrequency": zod.enum(['15min', '1hour', '2xdaily', 'daily', 'manual']),
+  "schedulerFrequency": zod.enum(['15min', '1hour', '2xdaily', 'daily', 'manual', '6x_daily']),
   "remoteOnly": zod.boolean(),
   "minRelevanceNotify": zod.number(),
   "minSalary": zod.number().nullable(),
@@ -417,6 +434,9 @@ export const GetSettingsResponse = zod.object({
   "postedWithinDays": zod.number().nullable(),
   "emailNotifications": zod.boolean(),
   "inAppNotifications": zod.boolean(),
+  "autoPostEnabled": zod.boolean(),
+  "autoPostMinScore": zod.number(),
+  "autoDiscoverEnabled": zod.boolean(),
   "updatedAt": zod.string()
 })
 
@@ -425,7 +445,7 @@ export const GetSettingsResponse = zod.object({
  * @summary Update user settings
  */
 export const UpdateSettingsBody = zod.object({
-  "schedulerFrequency": zod.enum(['15min', '1hour', '2xdaily', 'daily', 'manual']).optional(),
+  "schedulerFrequency": zod.enum(['15min', '1hour', '2xdaily', 'daily', 'manual', '6x_daily']).optional(),
   "remoteOnly": zod.boolean().optional(),
   "minRelevanceNotify": zod.number().optional(),
   "minSalary": zod.number().nullish(),
@@ -437,12 +457,15 @@ export const UpdateSettingsBody = zod.object({
   "experienceLevels": zod.array(zod.string()).optional(),
   "postedWithinDays": zod.number().nullish(),
   "emailNotifications": zod.boolean().optional(),
-  "inAppNotifications": zod.boolean().optional()
+  "inAppNotifications": zod.boolean().optional(),
+  "autoPostEnabled": zod.boolean().optional(),
+  "autoPostMinScore": zod.number().optional(),
+  "autoDiscoverEnabled": zod.boolean().optional()
 })
 
 export const UpdateSettingsResponse = zod.object({
   "id": zod.number(),
-  "schedulerFrequency": zod.enum(['15min', '1hour', '2xdaily', 'daily', 'manual']),
+  "schedulerFrequency": zod.enum(['15min', '1hour', '2xdaily', 'daily', 'manual', '6x_daily']),
   "remoteOnly": zod.boolean(),
   "minRelevanceNotify": zod.number(),
   "minSalary": zod.number().nullable(),
@@ -455,6 +478,9 @@ export const UpdateSettingsResponse = zod.object({
   "postedWithinDays": zod.number().nullable(),
   "emailNotifications": zod.boolean(),
   "inAppNotifications": zod.boolean(),
+  "autoPostEnabled": zod.boolean(),
+  "autoPostMinScore": zod.number(),
+  "autoDiscoverEnabled": zod.boolean(),
   "updatedAt": zod.string()
 })
 

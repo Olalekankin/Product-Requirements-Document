@@ -1,0 +1,386 @@
+# Refactor AI Prompt Architecture
+
+The current implementation embeds long prompt strings directly inside service functions (`summarizeJob()` and `generateSocialPostContent()`). This approach does not scale and will prevent us from introducing configurable prompt templates, knowledge libraries, tone calibration, and future AI providers.
+
+I want you to redesign this part of the application into a modular Prompt Management System.
+
+## Goals
+
+The new architecture should:
+
+* Separate prompt templates from application logic.
+* Support reusable prompt templates.
+* Support prompt versioning.
+* Support external knowledge injection.
+* Support runtime variable interpolation.
+* Support future RAG/knowledge-base integration.
+* Support multiple AI providers (Gemini today, OpenAI/Claude later).
+* Make prompts editable without changing business logic.
+
+---
+
+## Desired Architecture
+
+Instead of this:
+
+```
+Service
+ └── Huge inline prompt
+      └── Gemini
+```
+
+Build something closer to:
+
+```
+Service
+    │
+    ▼
+Prompt Manager
+    │
+    ├── Prompt Templates
+    ├── Personas
+    ├── Knowledge Library
+    ├── Style Guides
+    ├── JSON Schemas
+    └── Variable Interpolation
+             │
+             ▼
+AI Provider
+```
+
+---
+
+# Create a Prompt Module
+
+Create a dedicated module such as:
+
+```
+src/
+  ai/
+    providers/
+    prompts/
+    personas/
+    knowledge/
+    schemas/
+    services/
+    types/
+```
+
+The exact folder names may vary, but responsibilities should remain clearly separated.
+
+---
+
+# Prompt Templates
+
+Each AI task should have its own prompt template.
+
+Examples:
+
+```
+job-summary.prompt.ts
+
+social-post.prompt.ts
+
+job-matching.prompt.ts
+
+salary-extraction.prompt.ts
+
+technology-extraction.prompt.ts
+```
+
+Templates should contain only prompt text and placeholders.
+
+Business logic must not live inside templates.
+
+---
+
+# Variable Interpolation
+
+Instead of string concatenation like:
+
+```
+Job Title: ${title}
+Company: ${company}
+```
+
+Create a prompt renderer.
+
+Example:
+
+```
+{{JOB_TITLE}}
+
+{{COMPANY}}
+
+{{DESCRIPTION}}
+
+{{KEYWORDS}}
+```
+
+The renderer should replace placeholders with runtime values.
+
+---
+
+# Knowledge Library
+
+Introduce a Knowledge Library.
+
+Initially it should support static JSON or Markdown files.
+
+Example:
+
+```
+knowledge/
+
+job-summary-guidelines.md
+
+remote-job-rules.md
+
+social-writing-style.md
+
+engagement-principles.md
+
+twitter-style-library.json
+```
+
+The Prompt Manager should be able to inject one or more knowledge documents into the final prompt.
+
+Example:
+
+```
+Prompt
+
++
+
+Writing Style
+
++
+
+Job Rules
+
++
+
+Runtime Variables
+
+↓
+
+Final Prompt
+```
+
+This prepares the project for future RAG without changing the application architecture.
+
+---
+
+# Social Style Library
+
+The current social post generation contains a hardcoded style.
+
+Instead, create a Style Library.
+
+Example:
+
+```
+styles/
+
+professional.json
+
+job-poster.json
+
+viral-job-poster.json
+
+globalellah.json
+```
+
+Each style file may contain:
+
+* writing principles
+* preferred tone
+* CTA rules
+* emoji usage
+* formatting rules
+* forbidden phrases
+* examples
+* output constraints
+
+The service should request a style by name instead of embedding it inside the prompt.
+
+Example:
+
+```
+generateSocialPost({
+    style: "globalellah"
+})
+```
+
+---
+
+# Personas
+
+Create reusable personas.
+
+Examples:
+
+```
+Expert Job Analyst
+
+Remote Recruiter
+
+Social Media Copywriter
+
+Technical Recruiter
+```
+
+Each persona should define:
+
+* role
+* expertise
+* objectives
+* reasoning constraints
+
+Prompt templates should reference personas instead of repeating those instructions.
+
+---
+
+# Output Schemas
+
+Move JSON output requirements into reusable schema definitions.
+
+Instead of embedding JSON inside the prompt.
+
+Example:
+
+```
+schemas/
+
+job-summary.schema.ts
+
+social-post.schema.ts
+```
+
+The prompt builder should append the schema automatically.
+
+---
+
+# AI Provider Abstraction
+
+The service should not know about Gemini.
+
+Instead create something similar to:
+
+```
+AIProvider
+
+generate()
+
+↓
+
+GeminiProvider
+```
+
+Later we should be able to add:
+
+```
+OpenAIProvider
+
+ClaudeProvider
+```
+
+without changing the services.
+
+---
+
+# Prompt Builder
+
+Introduce a Prompt Builder responsible for assembling:
+
+* Persona
+* Prompt Template
+* Knowledge Files
+* Style Guide
+* Runtime Variables
+* Output Schema
+
+into one final prompt.
+
+Services should never manually concatenate prompt strings again.
+
+---
+
+# Future Knowledge Feed
+
+Design the system so future knowledge can be loaded dynamically.
+
+Examples include:
+
+* JSON prompt libraries
+* Markdown documents
+* User-created writing styles
+* Few-shot examples
+* Company guidelines
+* Job posting examples
+* Retrieved RAG documents
+
+The application should not need architectural changes to support these.
+
+---
+
+# Refactor Existing Functions
+
+Refactor:
+
+```
+summarizeJob()
+```
+
+to use:
+
+* Job Analyst persona
+* Job Summary prompt template
+* Job Summary schema
+* Job knowledge library
+
+Refactor:
+
+```
+generateSocialPostContent()
+```
+
+to use:
+
+* Social Copywriter persona
+* Social Post prompt template
+* Selected writing style
+* Engagement knowledge library
+* Runtime job data
+
+---
+
+# Non-Functional Requirements
+
+* Strong typing throughout.
+* No duplicated prompt text.
+* Easy to add new prompts.
+* Easy to add new styles.
+* Easy to add new personas.
+* Easy to add new AI providers.
+* Easy to test prompt rendering.
+* Business logic must remain independent of prompt content.
+
+---
+
+# Deliverables
+
+1. New folder structure.
+2. Prompt Manager implementation.
+3. Prompt Builder.
+4. Variable interpolation utility.
+5. Style Library loader.
+6. Knowledge loader.
+7. Persona definitions.
+8. Prompt template files.
+9. Output schema files.
+10. Refactored `summarizeJob()`.
+11. Refactored `generateSocialPostContent()`.
+12. Documentation explaining how to add new prompts, styles, personas, and knowledge files.
+
+The end result should be a scalable AI prompt architecture that supports prompt engineering as a first-class feature rather than embedding prompt strings inside service code.

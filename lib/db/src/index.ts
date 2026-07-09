@@ -41,3 +41,10 @@ export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 export const db = drizzle(pool, { schema });
 
 export * from "./schema";
+
+// Some consumers import specific tables directly from the package root.
+// Re-export commonly-used tables explicitly to ensure TypeScript resolves them.
+export { jobCandidatesTable } from "./schema/job_candidates";
+export { jobsTable } from "./schema/jobs";
+export { scheduledPostsTable } from "./schema/scheduled_posts";
+export { socialConnectionsTable } from "./schema/social_connections";

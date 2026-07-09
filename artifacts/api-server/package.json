@@ -7,10 +7,12 @@
     "dev": "cross-env NODE_ENV=development pnpm run build && cross-env NODE_ENV=development pnpm run start",
     "build": "node ./build.mjs",
     "start": "node --enable-source-maps ./dist/index.mjs",
+    "agent": "cross-env NODE_ENV=production pnpm run build && cross-env NODE_ENV=production node --enable-source-maps ./dist/workers/agent-runner.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "@google/genai": "^2.10.0",
+    "@modelcontextprotocol/sdk": "1.25.2",
     "@workspace/api-zod": "workspace:*",
     "@workspace/db": "workspace:*",
     "cookie-parser": "^1.4.7",

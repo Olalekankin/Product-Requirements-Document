@@ -1,44 +1,16 @@
-import { existsSync } from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-import { config } from "dotenv";
-
-function findEnvFile(startPaths: string[]) {
-  for (const startPath of startPaths) {
-    let currentDir = path.resolve(startPath);
-    while (true) {
-      const candidate = path.join(currentDir, ".env");
-      if (existsSync(candidate)) {
-        return candidate;
-      }
-
-      const parentDir = path.dirname(currentDir);
-      if (parentDir === currentDir) {
-        break;
-      }
-      currentDir = parentDir;
-    }
-  }
-
-  return path.resolve(process.cwd(), ".env");
-}
-
-config({ path: findEnvFile([process.cwd(), path.dirname(fileURLToPath(import.meta.url))]) });
-
+import { loadEnv } from "./lib/load-env";
 import app from "./app";
 import { logger } from "./lib/logger";
+import { startCronScheduler } from "./lib/cron-scheduler";
 
-const rawPort = process.env["PORT"];
+loadEnv();
 
+const rawPort = process.env.PORT;
 if (!rawPort) {
-  throw new Error(
-    "PORT environment variable is required but was not provided.",
-  );
+  throw new Error("PORT environment variable is required but was not provided.");
 }
 
 const port = Number(rawPort);
-
 if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
@@ -50,4 +22,5 @@ app.listen(port, (err) => {
   }
 
   logger.info({ port }, "Server listening");
+  startCronScheduler();
 });

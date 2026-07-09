@@ -1,4 +1,4 @@
-import { pgTable, serial, text, boolean, integer, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, boolean, integer, timestamp, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod/v4";
 
@@ -9,6 +9,7 @@ export const sourcesTable = pgTable("sources", {
   type: text("type").notNull().default("rss"), // rss | api | scraper | manual
   url: text("url"),
   enabled: boolean("enabled").notNull().default(true),
+  config: jsonb("config").notNull().default({}),
   lastScannedAt: timestamp("last_scanned_at", { withTimezone: true }),
   jobsFound: integer("jobs_found").notNull().default(0),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),

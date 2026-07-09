@@ -395,6 +395,21 @@ paths:
         "204":
           description: Deleted
 
+  /sources/auto-discover:
+    post:
+      operationId: autoDiscoverSources
+      tags: [sources]
+      summary: Autonomous discovery of job sources
+      responses:
+        "200":
+          description: Discovered and registered sources
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Source"
+
   # ─── Settings ────────────────────────────────────────────────────────────────
 
   /settings:
@@ -987,13 +1002,13 @@ components:
 
     Settings:
       type: object
-      required: [id, schedulerFrequency, remoteOnly, minRelevanceNotify, minSalary, excludedKeywords, requiredTechnologies, blacklistedCompanies, whitelistedCompanies, employmentTypes, experienceLevels, postedWithinDays, emailNotifications, inAppNotifications, updatedAt]
+      required: [id, schedulerFrequency, remoteOnly, minRelevanceNotify, minSalary, excludedKeywords, requiredTechnologies, blacklistedCompanies, whitelistedCompanies, employmentTypes, experienceLevels, postedWithinDays, emailNotifications, inAppNotifications, autoPostEnabled, autoPostMinScore, autoDiscoverEnabled, updatedAt]
       properties:
         id:
           type: integer
         schedulerFrequency:
           type: string
-          enum: [15min, 1hour, 2xdaily, daily, manual]
+          enum: [15min, 1hour, 2xdaily, daily, manual, 6x_daily]
         remoteOnly:
           type: boolean
         minRelevanceNotify:
@@ -1029,6 +1044,12 @@ components:
         emailNotifications:
           type: boolean
         inAppNotifications:
+          type: boolean
+        autoPostEnabled:
+          type: boolean
+        autoPostMinScore:
+          type: integer
+        autoDiscoverEnabled:
           type: boolean
         updatedAt:
           type: string
@@ -1038,7 +1059,7 @@ components:
       properties:
         schedulerFrequency:
           type: string
-          enum: [15min, 1hour, 2xdaily, daily, manual]
+          enum: [15min, 1hour, 2xdaily, daily, manual, 6x_daily]
         remoteOnly:
           type: boolean
         minRelevanceNotify:
@@ -1074,6 +1095,12 @@ components:
         emailNotifications:
           type: boolean
         inAppNotifications:
+          type: boolean
+        autoPostEnabled:
+          type: boolean
+        autoPostMinScore:
+          type: integer
+        autoDiscoverEnabled:
           type: boolean
 
     # ── Notes ─────────────────────────────────────────────────────────────────

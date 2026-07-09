@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { 
   useGetJob, useUpdateJob, useListNotes, useCreateNote, useDeleteNote, 
   useGetSocialPost, useGenerateSocialPost, useSummarizeJob, JobStatus, 
-  getGetJobQueryKey, getListNotesQueryKey, getGetSocialPostQueryKey 
+  getGetJobQueryKey, getListNotesQueryKey, getGetSocialPostQueryKey,
+  useListSocialConnections, usePublishNow, useSchedulePost,
+  useListScheduledPosts, useCancelScheduledPost, getListScheduledPostsQueryKey
 } from "@workspace/api-client-react";
 import { useParams, Link } from "wouter";
 import { PageHeader } from "@/components/layout/PageHeader";
@@ -278,16 +280,28 @@ function NotesPanel({ jobId, notes: initialNotes }: { jobId: number, notes: any[
 
 function SocialPostPanel({ jobId, initialPost }: { jobId: number, initialPost: any }) {
   const queryClient = useQueryClient();
+  
+  // Data queries & mutations
   const { data: socialPost } = useGetSocialPost(jobId, { query: { initialData: initialPost, queryKey: ["getSocialPost", jobId] } });
+  const { data: connections } = useListSocialConnections();
+  const { data: allScheduled } = useListScheduledPosts();
   
   const generatePost = useGenerateSocialPost();
+  const publishNow = usePublishNow();
+  const schedulePost = useSchedulePost();
+  const cancelPost = useCancelScheduledPost();
+
+  // Local state
   const [platform, setPlatform] = useState<"twitter" | "linkedin">("twitter");
   const [tone, setTone] = useState<"interesting" | "applying" | "sharing">("sharing");
+  const [scheduleTime, setScheduleTime] = useState("");
+  const [isScheduling, setIsScheduling] = useState(false);
 
   const handleGenerate = () => {
     generatePost.mutate({ jobId, data: { platform, tone } }, {
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: getGetSocialPostQueryKey(jobId) });
+        toast.success("Social post content generated");
       }
     });
   };
@@ -299,57 +313,244 @@ function SocialPostPanel({ jobId, initialPost }: { jobId: number, initialPost: a
     }
   };
 
-  return (
-    <Card className="p-0 overflow-hidden border-blue-200">
-      <div className="p-4 bg-blue-50 border-b border-blue-100 font-bold flex items-center gap-2 text-blue-900">
-        <Share2 className="w-4 h-4 text-blue-600" /> Share Opportunity
-      </div>
-      <div className="p-4 space-y-4 bg-card">
-        <div className="grid grid-cols-2 gap-2">
-          <Button 
-            variant={platform === "twitter" ? "default" : "outline"} 
-            size="sm" 
-            onClick={() => setPlatform("twitter")}
-          >Twitter</Button>
-          <Button 
-            variant={platform === "linkedin" ? "default" : "outline"} 
-            size="sm" 
-            onClick={() => setPlatform("linkedin")}
-          >LinkedIn</Button>
-        </div>
-        <div className="space-y-2">
-          <label className="text-xs font-bold uppercase text-muted-foreground">Tone</label>
-          <select 
-            className="flex h-9 w-full rounded-md border border-input bg-card px-3 py-1 text-sm shadow-sm"
-            value={tone}
-            onChange={(e) => setTone(e.target.value as any)}
-          >
-            <option value="sharing">Just sharing</option>
-            <option value="applying">I'm applying</option>
-            <option value="interesting">Looks interesting</option>
-          </select>
-        </div>
-        
-        <Button 
-          className="w-full gap-2" 
-          onClick={handleGenerate} 
-          disabled={generatePost.isPending}
-        >
-          <Sparkles className="w-4 h-4" /> 
-          {generatePost.isPending ? "Generating..." : socialPost ? "Regenerate Draft" : "Generate Draft"}
-        </Button>
+  // Find connection for selected platform
+  const connection = connections?.find(c => c.platform === platform);
 
-        {socialPost?.content && (
-          <div className="mt-4 pt-4 border-t border-border">
-            <div className="bg-muted/50 p-3 rounded-md text-sm text-foreground whitespace-pre-wrap border border-border">
-              {socialPost.content}
-            </div>
-            <Button variant="secondary" className="w-full mt-2" size="sm" onClick={handleCopy}>
-              Copy to Clipboard
-            </Button>
+  const handlePublishNow = () => {
+    if (!socialPost?.content) return;
+    if (!connection) {
+      toast.error(`Please connect a ${platform.toUpperCase()} account in Settings first.`);
+      return;
+    }
+
+    toast.promise(
+      publishNow.mutateAsync({
+        id: connection.id,
+        data: { content: socialPost.content }
+      }),
+      {
+        loading: `Publishing to ${platform.toUpperCase()}...`,
+        success: () => {
+          queryClient.invalidateQueries({ queryKey: getListScheduledPostsQueryKey() });
+          return `Successfully posted to ${platform.toUpperCase()}!`;
+        },
+        error: "Failed to publish post"
+      }
+    );
+  };
+
+  const handleSchedulePost = () => {
+    if (!socialPost?.content || !scheduleTime) return;
+    if (!connection) {
+      toast.error(`Please connect a ${platform.toUpperCase()} account in Settings first.`);
+      return;
+    }
+
+    toast.promise(
+      schedulePost.mutateAsync({
+        id: connection.id,
+        data: {
+          content: socialPost.content,
+          scheduledAt: new Date(scheduleTime).toISOString(),
+          jobId
+        }
+      }),
+      {
+        loading: "Scheduling post...",
+        success: () => {
+          setScheduleTime("");
+          setIsScheduling(false);
+          queryClient.invalidateQueries({ queryKey: getListScheduledPostsQueryKey() });
+          return "Post scheduled successfully";
+        },
+        error: "Failed to schedule post"
+      }
+    );
+  };
+
+  const handleCancelPost = (id: number) => {
+    toast.promise(
+      cancelPost.mutateAsync({ id }),
+      {
+        loading: "Cancelling post...",
+        success: () => {
+          queryClient.invalidateQueries({ queryKey: getListScheduledPostsQueryKey() });
+          return "Post cancelled";
+        },
+        error: "Failed to cancel post"
+      }
+    );
+  };
+
+  // Filter scheduled posts for this specific job
+  const jobPosts = allScheduled?.filter(p => p.jobId === jobId) || [];
+
+  return (
+    <div className="space-y-6">
+      <Card className="p-0 overflow-hidden border-blue-200">
+        <div className="p-4 bg-blue-50 border-b border-blue-100 font-bold flex items-center justify-between text-blue-900">
+          <span className="flex items-center gap-2">
+            <Share2 className="w-4 h-4 text-blue-600" /> Share Opportunity
+          </span>
+          {!connection && (
+            <Badge variant="outline" className="text-amber-700 bg-amber-50 border-amber-200 text-[10px]">
+              Disconnected
+            </Badge>
+          )}
+        </div>
+        <div className="p-4 space-y-4 bg-card">
+          <div className="grid grid-cols-2 gap-2">
+            <Button 
+              variant={platform === "twitter" ? "default" : "outline"} 
+              size="sm" 
+              onClick={() => setPlatform("twitter")}
+            >Twitter / X</Button>
+            <Button 
+              variant={platform === "linkedin" ? "default" : "outline"} 
+              size="sm" 
+              onClick={() => setPlatform("linkedin")}
+            >LinkedIn</Button>
           </div>
-        )}
-      </div>
-    </Card>
+          
+          <div className="space-y-2">
+            <label className="text-xs font-bold uppercase text-muted-foreground">Tone</label>
+            <select 
+              className="flex h-9 w-full rounded-md border border-input bg-card px-3 py-1 text-sm shadow-sm"
+              value={tone}
+              onChange={(e) => setTone(e.target.value as any)}
+            >
+              <option value="sharing">Just sharing</option>
+              <option value="applying">I'm applying</option>
+              <option value="interesting">Looks interesting</option>
+            </select>
+          </div>
+          
+          <Button 
+            className="w-full gap-2" 
+            onClick={handleGenerate} 
+            disabled={generatePost.isPending}
+          >
+            <Sparkles className="w-4 h-4" /> 
+            {generatePost.isPending ? "Generating..." : socialPost ? "Regenerate Draft" : "Generate Draft"}
+          </Button>
+
+          {socialPost?.content && (
+            <div className="mt-4 pt-4 border-t border-border space-y-4">
+              <div className="bg-muted/50 p-3 rounded-md text-sm text-foreground whitespace-pre-wrap border border-border">
+                {socialPost.content}
+              </div>
+              <div className="flex gap-2">
+                <Button variant="secondary" className="flex-1 text-xs" size="sm" onClick={handleCopy}>
+                  Copy
+                </Button>
+                <Button 
+                  disabled={!connection || publishNow.isPending} 
+                  className="flex-1 text-xs bg-emerald-600 hover:bg-emerald-700 text-white" 
+                  size="sm" 
+                  onClick={handlePublishNow}
+                >
+                  Publish Now
+                </Button>
+              </div>
+
+              {/* Scheduling controls */}
+              <div className="pt-2 border-t border-border/50">
+                {!isScheduling ? (
+                  <Button 
+                    variant="outline" 
+                    className="w-full text-xs gap-1.5" 
+                    size="sm" 
+                    disabled={!connection}
+                    onClick={() => setIsScheduling(true)}
+                  >
+                    <Clock className="w-3.5 h-3.5" /> Schedule for Later
+                  </Button>
+                ) : (
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-foreground block">Schedule Time</label>
+                    <Input
+                      type="datetime-local"
+                      className="text-xs"
+                      value={scheduleTime}
+                      onChange={(e) => setScheduleTime(e.target.value)}
+                    />
+                    <div className="flex gap-2 justify-end">
+                      <Button variant="ghost" size="sm" className="text-xs h-7" onClick={() => setIsScheduling(false)}>
+                        Cancel
+                      </Button>
+                      <Button 
+                        disabled={!scheduleTime || schedulePost.isPending} 
+                        size="sm" 
+                        className="text-xs h-7 bg-indigo-600 text-white hover:bg-indigo-700"
+                        onClick={handleSchedulePost}
+                      >
+                        Confirm
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      </Card>
+
+      {/* History and scheduled queue logs for this job */}
+      {jobPosts.length > 0 && (
+        <Card className="p-4 space-y-3">
+          <div className="font-bold text-sm text-foreground flex items-center gap-1.5 border-b border-border pb-2">
+            <Calendar className="w-4 h-4 text-muted-foreground" /> Publication Queue
+          </div>
+          <div className="space-y-3 max-h-[250px] overflow-y-auto pr-1">
+            {jobPosts.map((post) => (
+              <div key={post.id} className="text-xs p-2.5 rounded-lg border border-border bg-muted/20 space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold uppercase tracking-wider text-[10px] text-blue-600">
+                    {post.platform}
+                  </span>
+                  <div>
+                    {post.status === "pending" && (
+                      <Badge variant="outline" className="bg-amber-50 text-amber-800 border-amber-200 text-[9px] px-1 py-0 font-medium">Pending</Badge>
+                    )}
+                    {post.status === "posted" && (
+                      <Badge variant="outline" className="bg-emerald-50 text-emerald-800 border-emerald-200 text-[9px] px-1 py-0 font-medium">Posted</Badge>
+                    )}
+                    {post.status === "failed" && (
+                      <Badge variant="outline" className="bg-destructive/10 text-destructive border-destructive/20 text-[9px] px-1 py-0 font-medium">Failed</Badge>
+                    )}
+                    {post.status === "cancelled" && (
+                      <Badge variant="outline" className="bg-slate-100 text-slate-700 border-slate-200 text-[9px] px-1 py-0 font-medium">Cancelled</Badge>
+                    )}
+                  </div>
+                </div>
+                <p className="text-[11px] text-muted-foreground line-clamp-2 italic bg-muted/40 p-1.5 rounded">
+                  "{post.content}"
+                </p>
+                <div className="flex items-center justify-between text-[10px] text-muted-foreground">
+                  <span>
+                    {post.status === "posted" 
+                      ? `Posted: ${new Date(post.postedAt!).toLocaleDateString()}` 
+                      : `Scheduled: ${new Date(post.scheduledAt).toLocaleString()}`}
+                  </span>
+                  {post.status === "pending" && (
+                    <button 
+                      onClick={() => handleCancelPost(post.id)}
+                      className="text-destructive font-medium hover:underline"
+                    >
+                      Cancel
+                    </button>
+                  )}
+                </div>
+                {post.errorMessage && (
+                  <p className="text-[10px] text-destructive bg-destructive/5 p-1 rounded font-mono break-all mt-1">
+                    Error: {post.errorMessage}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
+    </div>
   );
 }

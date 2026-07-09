@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { eq } from "drizzle-orm";
-import { db, sourcesTable } from "@workspace/db";
+import { db, sourcesTable, keywordsTable } from "@workspace/db";
+import { discoverNewSources } from "../lib/source-discovery";
 import {
   CreateSourceBody,
   UpdateSourceParams,
@@ -76,6 +77,23 @@ router.delete("/sources/:id", async (req, res): Promise<void> => {
 
   await db.delete(sourcesTable).where(eq(sourcesTable.id, parsed.data.id));
   res.status(204).send();
+});
+
+// POST /sources/auto-discover
+router.post("/sources/auto-discover", async (_req, res): Promise<void> => {
+  try {
+    const keywords = await db
+      .select()
+      .from(keywordsTable)
+      .where(eq(keywordsTable.enabled, true));
+
+    const terms = keywords.map((k) => k.term);
+    const discovered = await discoverNewSources(terms);
+
+    res.json(discovered);
+  } catch (err: any) {
+    res.status(500).json({ error: err.message || "Failed to auto-discover sources" });
+  }
 });
 
 export default router;

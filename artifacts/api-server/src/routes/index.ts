@@ -10,6 +10,7 @@ import socialRouter from "./social";
 import schedulerRouter from "./scheduler";
 import authRouter from "./auth";
 import socialConnectionsRouter from "./social-connections";
+import mcpRouter from "../mcp-server";
 
 const router: IRouter = Router();
 
@@ -24,5 +25,6 @@ router.use(socialRouter);
 router.use(schedulerRouter);
 router.use(authRouter);
 router.use(socialConnectionsRouter);
+router.use(mcpRouter);
 
 export default router;

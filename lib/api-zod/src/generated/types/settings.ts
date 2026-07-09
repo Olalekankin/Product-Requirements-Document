@@ -24,5 +24,8 @@ export interface Settings {
   postedWithinDays: number | null;
   emailNotifications: boolean;
   inAppNotifications: boolean;
+  autoPostEnabled: boolean;
+  autoPostMinScore: number;
+  autoDiscoverEnabled: boolean;
   updatedAt: string;
 }

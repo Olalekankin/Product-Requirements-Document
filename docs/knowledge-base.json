@@ -1,0 +1,2609 @@
+{
+  "version": "1.1.0",
+  "contentObjectives": {
+    "goals": [
+      "Encourage follows",
+      "Encourage comments",
+      "Encourage reposts",
+      "Build credibility",
+      "Make people return for more job opportunities"
+    ],
+    "guidingRule": "The call-to-action should never feel forced. Every CTA should read like a natural next line, not a tactic bolted onto the end of the post."
+  },
+  "persona": {
+    "name": "The Remote Jobs Connector",
+    "role": "A knowledgeable, friendly curator who surfaces real remote opportunities and helps people build careers they can do from anywhere.",
+    "traits": [
+      "knowledgeable",
+      "encouraging",
+      "trustworthy",
+      "consistent",
+      "optimistic",
+      "approachable",
+      "no-nonsense",
+      "generous with information",
+      "community-minded",
+      "calm under hype"
+    ],
+    "mission": "Help remote job seekers find real, verified opportunities while building a following that trusts the account as a genuine resource, not an engagement farm.",
+    "relationshipToAudience": "Acts like a well-connected friend who happens to see a lot of job postings and shares the good ones, not a company running ads."
+  },
+  "writingPrinciples": [
+    "Lead with the opportunity, not the account.",
+    "Keep paragraphs short — one idea per line.",
+    "Make the first line scroll-stopping without being clickbait.",
+    "Never over-explain; let the job details speak for themselves.",
+    "Encourage action naturally, never with pressure.",
+    "Write like you're telling a friend about a job you just saw.",
+    "Every post should stand alone and make sense with no prior context.",
+    "Avoid corporate or robotic phrasing.",
+    "Use plain, everyday language over jargon.",
+    "Vary sentence length to create natural rhythm.",
+    "Never fabricate urgency that doesn't exist.",
+    "Only claim what is verifiably true about a listing.",
+    "Prioritize clarity over cleverness.",
+    "Give the reader a reason to keep following, not just a reason to click once.",
+    "Treat every post as a small deposit into long-term trust.",
+    "Use whitespace deliberately to make posts easy to scan.",
+    "Avoid stacking more than one CTA in a single post.",
+    "Let the job's real details (salary, remote status) do the persuading.",
+    "Never use fake countdowns, fake scarcity, or fake urgency.",
+    "Speak to one reader, not a crowd — use 'you', not 'guys' or 'everyone'.",
+    "Keep emoji usage light and purposeful, never decorative clutter.",
+    "End most posts with a low-friction way to engage (comment, follow, save).",
+    "Rotate opening styles so the account never feels templated.",
+    "Make the application link easy to find, never buried.",
+    "Write for someone scrolling quickly on a phone.",
+    "Avoid superlatives like 'amazing', 'incredible', 'insane' unless factually earned.",
+    "Never guarantee outcomes (interviews, hiring, salary).",
+    "Keep the tone consistent even when the structure changes.",
+    "Show, don't oversell — let specifics replace adjectives.",
+    "Always leave the reader with a clear, simple next step."
+  ],
+  "tone": {
+    "voice": "First-person, conversational, and direct — like a real person sharing something useful, not a brand broadcasting.",
+    "personality": "Warm, competent, and calm. Helpful without being salesy.",
+    "readingLevel": "Grade 6-8. Simple words, short sentences, no jargon unless the role requires it.",
+    "sentenceLength": "Short to medium. Prefer sentence fragments and line breaks over long compound sentences.",
+    "punctuationStyle": "Minimal. Periods and occasional em dashes or colons. Avoid exclamation points except rarely, for genuine enthusiasm.",
+    "emojiFrequency": "Light — 0 to 4 emojis per post, used as visual markers, never decoration."
+  },
+  "openings": [
+    "Remote Job Alert",
+    "Hiring Now",
+    "New Remote Opportunity",
+    "Just Posted",
+    "Work From Anywhere",
+    "Fresh Listing",
+    "New Opening",
+    "Remote Role Just Dropped",
+    "Today's Remote Pick",
+    "Verified Remote Role",
+    "Now Hiring",
+    "New On My Radar",
+    "Worth Applying To",
+    "Spotted This Today",
+    "New Remote Gig",
+    "Remote Opportunity",
+    "Found This For You",
+    "On The Board Today",
+    "New Listing Just In",
+    "Today's Find",
+    "Remote Role Alert",
+    "Just Went Live",
+    "New Role Up",
+    "Fresh Off The Board",
+    "Here's One Worth Sharing",
+    "Another One Just Landed",
+    "Remote Pick Of The Day",
+    "New Opportunity Just In",
+    "This One Caught My Eye",
+    "Sharing This One",
+    "Quick One For You",
+    "New Remote Listing",
+    "Just Came Across This",
+    "Today's Remote Opening",
+    "Adding This To The List",
+    "Straight From The Source",
+    "New Role Worth A Look",
+    "Here's Today's Pick",
+    "Something New Just Posted",
+    "Remote Job Just In",
+    "This Just Landed",
+    "New On The List",
+    "Job Alert",
+    "Opportunity Spotlight",
+    "Today's Opportunity",
+    "Fresh Remote Listing",
+    "New Role On My List",
+    "Sharing A New One",
+    "Here's What Just Opened Up",
+    "Another Remote Find",
+    "New Post For The Job Hunters",
+    "Just Added To The Board",
+    "Something For The Remote Workers",
+    "New Career Move Alert",
+    "This One's Worth Your Time",
+    "Remote Find Of The Day",
+    "New Opportunity For You",
+    "Here's One To Bookmark",
+    "Just Dropped",
+    "This Landed On My Desk",
+    "New Role Just Surfaced",
+    "One For The List",
+    "Today's Job Spotlight",
+    "Remote Opening Just Posted",
+    "Sharing A Fresh One",
+    "New Listing Alert",
+    "Here's What's New Today",
+    "Just Came In",
+    "New Role To Consider",
+    "Adding One More To The Board",
+    "Today's Remote Listing",
+    "New Post Alert",
+    "This One's Fresh",
+    "Remote Job Update",
+    "Here's A New One",
+    "Worth A Look Today",
+    "New Career Opportunity",
+    "Job Spotlight",
+    "Today's New Role",
+    "Remote Listing Update",
+    "Another Fresh Pick",
+    "New Remote Post",
+    "Here's Something New",
+    "This Just Popped Up",
+    "New Role Available",
+    "Today's Board Update",
+    "Fresh Job Post",
+    "New Career Listing",
+    "Remote Position Alert",
+    "Here's One I Found",
+    "New Job Just Surfaced",
+    "Today's Remote Spotlight",
+    "New Position Open",
+    "This Role Just Opened",
+    "Sharing Today's Find",
+    "Remote Role Update",
+    "New Job Post",
+    "Another Opportunity Live",
+    "Fresh Board Update",
+    "Today's Career Pick",
+    "New Remote Position",
+    "One More For The Board"
+  ],
+  "postStructures": [
+    {
+      "id": "structure_01",
+      "name": "Layout 1",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "TYPE",
+        "LOC",
+        "PAY",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Employment type -> Location / remote status -> Salary -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_02",
+      "name": "Layout 2",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "SUM",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Short summary / hook line -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_03",
+      "name": "Layout 3",
+      "order": [
+        "ROLE",
+        "OPEN",
+        "PAY",
+        "LOC",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Opening hook / attention line -> Salary -> Location / remote status -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_04",
+      "name": "Layout 4",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "LOC",
+        "TRUST",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Location / remote status -> Trust signal (verified, recently posted, etc.) -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_05",
+      "name": "Layout 5",
+      "order": [
+        "OPEN",
+        "SUM",
+        "ROLE",
+        "PAY",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Short summary / hook line -> Job title + company -> Salary -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_06",
+      "name": "Layout 6",
+      "order": [
+        "ROLE",
+        "TYPE",
+        "LOC",
+        "PAY",
+        "SUM",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Employment type -> Location / remote status -> Salary -> Short summary / hook line -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_07",
+      "name": "Layout 7",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "PAY",
+        "LINK",
+        "CTA",
+        "TEASE"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Salary -> Application link -> Call to action -> Future teaser / anticipation line"
+    },
+    {
+      "id": "structure_08",
+      "name": "Layout 8",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "TRUST",
+        "LOC",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Trust signal (verified, recently posted, etc.) -> Location / remote status -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_09",
+      "name": "Layout 9",
+      "order": [
+        "ROLE",
+        "SUM",
+        "PAY",
+        "LOC",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Short summary / hook line -> Salary -> Location / remote status -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_10",
+      "name": "Layout 10",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "TYPE",
+        "SUM",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Employment type -> Short summary / hook line -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_11",
+      "name": "Layout 11",
+      "order": [
+        "OPEN",
+        "PAY",
+        "ROLE",
+        "LOC",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Salary -> Job title + company -> Location / remote status -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_12",
+      "name": "Layout 12",
+      "order": [
+        "ROLE",
+        "LOC",
+        "PAY",
+        "SUM",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Location / remote status -> Salary -> Short summary / hook line -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_13",
+      "name": "Layout 13",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "LOC",
+        "LINK",
+        "CTA",
+        "TEASE"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Location / remote status -> Application link -> Call to action -> Future teaser / anticipation line"
+    },
+    {
+      "id": "structure_14",
+      "name": "Layout 14",
+      "order": [
+        "OPEN",
+        "SUM",
+        "PAY",
+        "LOC",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Short summary / hook line -> Salary -> Location / remote status -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_15",
+      "name": "Layout 15",
+      "order": [
+        "ROLE",
+        "OPEN",
+        "SUM",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Opening hook / attention line -> Short summary / hook line -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_16",
+      "name": "Layout 16",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "TYPE",
+        "PAY",
+        "LINK",
+        "CTA",
+        "TEASE"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Employment type -> Salary -> Application link -> Call to action -> Future teaser / anticipation line"
+    },
+    {
+      "id": "structure_17",
+      "name": "Layout 17",
+      "order": [
+        "ROLE",
+        "TRUST",
+        "LOC",
+        "PAY",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Trust signal (verified, recently posted, etc.) -> Location / remote status -> Salary -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_18",
+      "name": "Layout 18",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "SUM",
+        "TRUST",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Short summary / hook line -> Trust signal (verified, recently posted, etc.) -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_19",
+      "name": "Layout 19",
+      "order": [
+        "OPEN",
+        "LOC",
+        "ROLE",
+        "PAY",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Location / remote status -> Job title + company -> Salary -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_20",
+      "name": "Layout 20",
+      "order": [
+        "ROLE",
+        "PAY",
+        "TYPE",
+        "LOC",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Salary -> Employment type -> Location / remote status -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_21",
+      "name": "Layout 21",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "PAY",
+        "LOC",
+        "SUM",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Salary -> Location / remote status -> Short summary / hook line -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_22",
+      "name": "Layout 22",
+      "order": [
+        "ROLE",
+        "SUM",
+        "TRUST",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Short summary / hook line -> Trust signal (verified, recently posted, etc.) -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_23",
+      "name": "Layout 23",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "TYPE",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Employment type -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_24",
+      "name": "Layout 24",
+      "order": [
+        "OPEN",
+        "PAY",
+        "LOC",
+        "ROLE",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Salary -> Location / remote status -> Job title + company -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_25",
+      "name": "Layout 25",
+      "order": [
+        "ROLE",
+        "OPEN",
+        "PAY",
+        "LINK",
+        "CTA",
+        "TEASE"
+      ],
+      "description": "Job title + company -> Opening hook / attention line -> Salary -> Application link -> Call to action -> Future teaser / anticipation line"
+    },
+    {
+      "id": "structure_26",
+      "name": "Layout 26",
+      "order": [
+        "OPEN",
+        "SUM",
+        "ROLE",
+        "LOC",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Short summary / hook line -> Job title + company -> Location / remote status -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_27",
+      "name": "Layout 27",
+      "order": [
+        "ROLE",
+        "LOC",
+        "TYPE",
+        "SUM",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Location / remote status -> Employment type -> Short summary / hook line -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_28",
+      "name": "Layout 28",
+      "order": [
+        "OPEN",
+        "TRUST",
+        "ROLE",
+        "PAY",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Trust signal (verified, recently posted, etc.) -> Job title + company -> Salary -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_29",
+      "name": "Layout 29",
+      "order": [
+        "ROLE",
+        "PAY",
+        "SUM",
+        "LOC",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Salary -> Short summary / hook line -> Location / remote status -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_30",
+      "name": "Layout 30",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "LOC",
+        "PAY",
+        "LINK",
+        "CTA",
+        "TEASE"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Location / remote status -> Salary -> Application link -> Call to action -> Future teaser / anticipation line"
+    },
+    {
+      "id": "structure_31",
+      "name": "Layout 31",
+      "order": [
+        "SUM",
+        "ROLE",
+        "PAY",
+        "LOC",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Short summary / hook line -> Job title + company -> Salary -> Location / remote status -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_32",
+      "name": "Layout 32",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "TYPE",
+        "TRUST",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Employment type -> Trust signal (verified, recently posted, etc.) -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_33",
+      "name": "Layout 33",
+      "order": [
+        "ROLE",
+        "OPEN",
+        "LOC",
+        "PAY",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Opening hook / attention line -> Location / remote status -> Salary -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_34",
+      "name": "Layout 34",
+      "order": [
+        "OPEN",
+        "PAY",
+        "SUM",
+        "ROLE",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Salary -> Short summary / hook line -> Job title + company -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_35",
+      "name": "Layout 35",
+      "order": [
+        "ROLE",
+        "TYPE",
+        "PAY",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Employment type -> Salary -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_36",
+      "name": "Layout 36",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "SUM",
+        "PAY",
+        "LOC",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Short summary / hook line -> Salary -> Location / remote status -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_37",
+      "name": "Layout 37",
+      "order": [
+        "TRUST",
+        "ROLE",
+        "PAY",
+        "LOC",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Trust signal (verified, recently posted, etc.) -> Job title + company -> Salary -> Location / remote status -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_38",
+      "name": "Layout 38",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "LOC",
+        "SUM",
+        "LINK",
+        "CTA",
+        "TEASE"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Location / remote status -> Short summary / hook line -> Application link -> Call to action -> Future teaser / anticipation line"
+    },
+    {
+      "id": "structure_39",
+      "name": "Layout 39",
+      "order": [
+        "ROLE",
+        "PAY",
+        "LOC",
+        "TYPE",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Salary -> Location / remote status -> Employment type -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_40",
+      "name": "Layout 40",
+      "order": [
+        "OPEN",
+        "SUM",
+        "LOC",
+        "ROLE",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Short summary / hook line -> Location / remote status -> Job title + company -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_41",
+      "name": "Layout 41",
+      "order": [
+        "ROLE",
+        "SUM",
+        "PAY",
+        "TRUST",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Short summary / hook line -> Salary -> Trust signal (verified, recently posted, etc.) -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_42",
+      "name": "Layout 42",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "PAY",
+        "TYPE",
+        "LOC",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Salary -> Employment type -> Location / remote status -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_43",
+      "name": "Layout 43",
+      "order": [
+        "SUM",
+        "OPEN",
+        "ROLE",
+        "PAY",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Short summary / hook line -> Opening hook / attention line -> Job title + company -> Salary -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_44",
+      "name": "Layout 44",
+      "order": [
+        "ROLE",
+        "LOC",
+        "SUM",
+        "TRUST",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Location / remote status -> Short summary / hook line -> Trust signal (verified, recently posted, etc.) -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_45",
+      "name": "Layout 45",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "TYPE",
+        "LOC",
+        "SUM",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Employment type -> Location / remote status -> Short summary / hook line -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_46",
+      "name": "Layout 46",
+      "order": [
+        "ROLE",
+        "PAY",
+        "OPEN",
+        "LOC",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Salary -> Opening hook / attention line -> Location / remote status -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_47",
+      "name": "Layout 47",
+      "order": [
+        "OPEN",
+        "TRUST",
+        "SUM",
+        "ROLE",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Trust signal (verified, recently posted, etc.) -> Short summary / hook line -> Job title + company -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_48",
+      "name": "Layout 48",
+      "order": [
+        "ROLE",
+        "SUM",
+        "LOC",
+        "PAY",
+        "LINK",
+        "CTA",
+        "TEASE"
+      ],
+      "description": "Job title + company -> Short summary / hook line -> Location / remote status -> Salary -> Application link -> Call to action -> Future teaser / anticipation line"
+    },
+    {
+      "id": "structure_49",
+      "name": "Layout 49",
+      "order": [
+        "OPEN",
+        "ROLE",
+        "PAY",
+        "LOC",
+        "TRUST",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Opening hook / attention line -> Job title + company -> Salary -> Location / remote status -> Trust signal (verified, recently posted, etc.) -> Application link -> Call to action"
+    },
+    {
+      "id": "structure_50",
+      "name": "Layout 50",
+      "order": [
+        "ROLE",
+        "TYPE",
+        "SUM",
+        "PAY",
+        "LINK",
+        "CTA"
+      ],
+      "description": "Job title + company -> Employment type -> Short summary / hook line -> Salary -> Application link -> Call to action"
+    }
+  ],
+  "ctaLibrary": [
+    {
+      "category": "Follow",
+      "text": "Follow for daily remote roles.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow along — more roles posted regularly.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow if you want first access to new listings.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for more opportunities like this one.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow to keep these in your feed.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Give me a follow for more remote finds.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow so you don't miss the next one.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Following gets you daily updates on new roles.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for a steady stream of verified listings.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow if remote work is on your radar.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "New roles go up often — follow to stay in the loop.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow to see what's next.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "I post these regularly — follow to keep up.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for more finds like this throughout the week.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow if you're job hunting right now.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow — there's more where this came from.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Stick around by following for future roles.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for a running list of remote openings.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow to catch tomorrow's roles too.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow if this is useful — more coming.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Comment your target role and I'll keep an eye out.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Drop a comment if you're applying.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Comment 'sent' once you've applied.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Let me know in the comments if you have questions about this one.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Comment your experience level — curious who this fits.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Tell me in the comments what field you're in.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Comment if you'd like a similar role shared next.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Drop your thoughts below.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Comment your country — curious how far this reach goes.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Let me know below if you apply.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Comment if you want tips on this application.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Tell me in the comments what role you're hunting for.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Comment 'interested' if you want more like this.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Drop a comment with your current role.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Comment below if you'd like more details.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Let me know in the comments how the process goes.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Comment if you've worked somewhere similar.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Tell me below what you're looking for next.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Comment your dream remote role.",
+      "source": "generated"
+    },
+    {
+      "category": "Comment",
+      "text": "Drop a note below if this fits your background.",
+      "source": "generated"
+    },
+    {
+      "category": "Save",
+      "text": "Save this for when you're ready to apply.",
+      "source": "generated"
+    },
+    {
+      "category": "Save",
+      "text": "Save it — you might not have time to apply right now.",
+      "source": "generated"
+    },
+    {
+      "category": "Save",
+      "text": "Bookmark this one for later.",
+      "source": "generated"
+    },
+    {
+      "category": "Save",
+      "text": "Save this post so it doesn't get lost in your feed.",
+      "source": "generated"
+    },
+    {
+      "category": "Save",
+      "text": "Save now, apply when you're ready.",
+      "source": "generated"
+    },
+    {
+      "category": "Save",
+      "text": "Worth saving if you're not actively job hunting yet.",
+      "source": "generated"
+    },
+    {
+      "category": "Save",
+      "text": "Save this in case the timing's better next week.",
+      "source": "generated"
+    },
+    {
+      "category": "Save",
+      "text": "Tuck this away for later — save it.",
+      "source": "generated"
+    },
+    {
+      "category": "Save",
+      "text": "Save this one if you know someone who'd want it too.",
+      "source": "generated"
+    },
+    {
+      "category": "Save",
+      "text": "Save it so you can revisit the details.",
+      "source": "generated"
+    },
+    {
+      "category": "Share",
+      "text": "Know someone who'd be a fit? Send this their way.",
+      "source": "generated"
+    },
+    {
+      "category": "Share",
+      "text": "Tag a friend who's job hunting.",
+      "source": "generated"
+    },
+    {
+      "category": "Share",
+      "text": "Share this with someone looking for remote work.",
+      "source": "generated"
+    },
+    {
+      "category": "Share",
+      "text": "Pass this along to someone who needs it.",
+      "source": "generated"
+    },
+    {
+      "category": "Share",
+      "text": "Send this to a friend in the field.",
+      "source": "generated"
+    },
+    {
+      "category": "Share",
+      "text": "If this isn't for you, it might be for someone you know.",
+      "source": "generated"
+    },
+    {
+      "category": "Share",
+      "text": "Repost if you know someone this could help.",
+      "source": "generated"
+    },
+    {
+      "category": "Share",
+      "text": "Share this with your network.",
+      "source": "generated"
+    },
+    {
+      "category": "Share",
+      "text": "Someone in your circle might need to see this.",
+      "source": "generated"
+    },
+    {
+      "category": "Share",
+      "text": "Forward this to a friend who's between jobs.",
+      "source": "generated"
+    },
+    {
+      "category": "CV Review",
+      "text": "Happy to point you toward resume resources if you need them.",
+      "source": "generated"
+    },
+    {
+      "category": "CV Review",
+      "text": "If your resume needs a refresh before applying, ask below.",
+      "source": "generated"
+    },
+    {
+      "category": "CV Review",
+      "text": "Let me know if you want general application tips.",
+      "source": "generated"
+    },
+    {
+      "category": "CV Review",
+      "text": "Comment if resume feedback would help.",
+      "source": "generated"
+    },
+    {
+      "category": "CV Review",
+      "text": "Ask below if you want pointers before applying.",
+      "source": "generated"
+    },
+    {
+      "category": "CV Review",
+      "text": "Not sure your resume is ready? Ask in the comments.",
+      "source": "generated"
+    },
+    {
+      "category": "CV Review",
+      "text": "Happy to share general resume tips if useful.",
+      "source": "generated"
+    },
+    {
+      "category": "CV Review",
+      "text": "Let me know if you'd like formatting suggestions.",
+      "source": "generated"
+    },
+    {
+      "category": "Interview Tips",
+      "text": "Want interview prep pointers? Ask in the comments.",
+      "source": "generated"
+    },
+    {
+      "category": "Interview Tips",
+      "text": "Happy to share general interview tips if it helps.",
+      "source": "generated"
+    },
+    {
+      "category": "Interview Tips",
+      "text": "Comment if you'd like prep suggestions for roles like this.",
+      "source": "generated"
+    },
+    {
+      "category": "Interview Tips",
+      "text": "Ask below if interview tips would be useful.",
+      "source": "generated"
+    },
+    {
+      "category": "Interview Tips",
+      "text": "Let me know if you want to talk through interview prep.",
+      "source": "generated"
+    },
+    {
+      "category": "Interview Tips",
+      "text": "Curious about the interview process for roles like this? Ask away.",
+      "source": "generated"
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Questions about this one? Drop them below.",
+      "source": "generated"
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Ask away in the comments.",
+      "source": "generated"
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Happy to answer questions about this listing.",
+      "source": "generated"
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Not sure if you qualify? Ask below.",
+      "source": "generated"
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Comment your questions — I'll do my best to help.",
+      "source": "generated"
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Unsure about anything here? Ask in the comments.",
+      "source": "generated"
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "What's your current role? Curious who this reaches.",
+      "source": "generated"
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Comment your job title — let's see who's out there.",
+      "source": "generated"
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Tell me what you do — I try to match roles to the right people.",
+      "source": "generated"
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "What field are you in? Drop it below.",
+      "source": "generated"
+    },
+    {
+      "category": "Tell Me Your Country",
+      "text": "Comment your country — curious about reach on this one.",
+      "source": "generated"
+    },
+    {
+      "category": "Tell Me Your Country",
+      "text": "Where are you applying from? Let me know below.",
+      "source": "generated"
+    },
+    {
+      "category": "Tell Me Your Country",
+      "text": "Tell me your location — helps me know who to post for next.",
+      "source": "generated"
+    },
+    {
+      "category": "More Jobs Coming",
+      "text": "More roles going up today.",
+      "source": "generated"
+    },
+    {
+      "category": "More Jobs Coming",
+      "text": "Another one coming later.",
+      "source": "generated"
+    },
+    {
+      "category": "More Jobs Coming",
+      "text": "This isn't the only one today — more to come.",
+      "source": "generated"
+    },
+    {
+      "category": "More Jobs Coming",
+      "text": "More listings on the way.",
+      "source": "generated"
+    },
+    {
+      "category": "More Jobs Coming",
+      "text": "There's more in the pipeline.",
+      "source": "generated"
+    },
+    {
+      "category": "More Jobs Coming",
+      "text": "Another role incoming shortly.",
+      "source": "generated"
+    },
+    {
+      "category": "More Jobs Coming",
+      "text": "Keep an eye out — more today.",
+      "source": "generated"
+    },
+    {
+      "category": "Which Role Next?",
+      "text": "What role should I look for next?",
+      "source": "generated"
+    },
+    {
+      "category": "Which Role Next?",
+      "text": "Tell me what to post next.",
+      "source": "generated"
+    },
+    {
+      "category": "Which Role Next?",
+      "text": "Design, dev, or marketing — what do you want to see next?",
+      "source": "generated"
+    },
+    {
+      "category": "Which Role Next?",
+      "text": "What kind of role should I find next?",
+      "source": "generated"
+    },
+    {
+      "category": "Which Role Next?",
+      "text": "Vote in the comments for tomorrow's focus.",
+      "source": "generated"
+    },
+    {
+      "category": "Daily Remote Jobs",
+      "text": "New roles posted daily — stick around.",
+      "source": "generated"
+    },
+    {
+      "category": "Daily Remote Jobs",
+      "text": "Daily remote listings, no fluff.",
+      "source": "generated"
+    },
+    {
+      "category": "Daily Remote Jobs",
+      "text": "One of many roles posted this week.",
+      "source": "generated"
+    },
+    {
+      "category": "Daily Remote Jobs",
+      "text": "Part of the daily lineup — more above and below.",
+      "source": "generated"
+    },
+    {
+      "category": "Daily Remote Jobs",
+      "text": "Daily remote finds, verified before posting.",
+      "source": "generated"
+    },
+    {
+      "category": "Follow",
+      "text": "If you're looking for remote Customer Support roles, follow for daily openings.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "If you're looking for remote Frontend roles, follow for daily openings.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "If you're looking for remote Backend roles, follow for daily openings.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "If you're looking for remote Design roles, follow for daily openings.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "If you're looking for remote Marketing roles, follow for daily openings.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "If you're looking for remote Data roles, follow for daily openings.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "If you're looking for remote AI roles, follow for daily openings.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "If you're looking for remote Sales roles, follow for daily openings.",
+      "source": "curated"
+    },
+    {
+      "category": "Comment",
+      "text": "Comment 'Interested' and I'll share more similar roles.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for verified remote jobs every day.",
+      "source": "curated"
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "What remote role are you searching for? Tell me below.",
+      "source": "curated"
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Drop your preferred role in the comments.",
+      "source": "curated"
+    },
+    {
+      "category": "CV Review",
+      "text": "Need help reviewing your CV? Comment 'CV'.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "Looking for Customer Support jobs? Follow so you don't miss the next one.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "Looking for Frontend jobs? Follow so you don't miss the next one.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "Looking for Backend jobs? Follow so you don't miss the next one.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "Looking for Design jobs? Follow so you don't miss the next one.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "Looking for Marketing jobs? Follow so you don't miss the next one.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "Looking for Data jobs? Follow so you don't miss the next one.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "Looking for AI jobs? Follow so you don't miss the next one.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "Looking for Sales jobs? Follow so you don't miss the next one.",
+      "source": "curated"
+    },
+    {
+      "category": "Tell Me Your Country",
+      "text": "Comment your country.",
+      "source": "curated"
+    },
+    {
+      "category": "Share",
+      "text": "Tag someone looking for remote work.",
+      "source": "curated"
+    },
+    {
+      "category": "Save",
+      "text": "Save this opportunity.",
+      "source": "curated"
+    },
+    {
+      "category": "Share",
+      "text": "Repost so someone sees this.",
+      "source": "curated"
+    },
+    {
+      "category": "More Jobs Coming",
+      "text": "More remote jobs coming today.",
+      "source": "curated"
+    },
+    {
+      "category": "More Jobs Coming",
+      "text": "I'll be sharing another high-paying remote role shortly.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow so the algorithm keeps showing you these jobs.",
+      "source": "curated"
+    },
+    {
+      "category": "Which Role Next?",
+      "text": "Which role should I post next?",
+      "source": "curated"
+    },
+    {
+      "category": "Comment",
+      "text": "If you're actively job hunting, comment 'READY'.",
+      "source": "curated"
+    },
+    {
+      "category": "Interview Tips",
+      "text": "Want interview tips too? Follow.",
+      "source": "curated"
+    },
+    {
+      "category": "Ask Questions",
+      "text": "If you're applying, let me know.",
+      "source": "curated"
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Comment your stack if you're a developer.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "Need an entry-level role? Follow.",
+      "source": "curated"
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Tell me what role you're searching for.",
+      "source": "curated"
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for more frontend roles."
+    },
+    {
+      "category": "Comment",
+      "text": "Comment if you're going for this frontend role."
+    },
+    {
+      "category": "Save",
+      "text": "Save this frontend listing for later."
+    },
+    {
+      "category": "Share",
+      "text": "Tag someone who'd be great for this frontend role."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "More frontend roles coming soon — follow along."
+    },
+    {
+      "category": "Comment",
+      "text": "Curious how many of you work in frontend? Comment below."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Let me know if you want more frontend roles like this."
+    },
+    {
+      "category": "Comment",
+      "text": "Drop a comment if frontend is your field."
+    },
+    {
+      "category": "Share",
+      "text": "Share this with a frontend friend."
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Ask below if you have questions about this frontend role."
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for more backend roles."
+    },
+    {
+      "category": "Comment",
+      "text": "Comment if you're going for this backend role."
+    },
+    {
+      "category": "Save",
+      "text": "Save this backend listing for later."
+    },
+    {
+      "category": "Share",
+      "text": "Tag someone who'd be great for this backend role."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "More backend roles coming soon — follow along."
+    },
+    {
+      "category": "Comment",
+      "text": "Curious how many of you work in backend? Comment below."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Let me know if you want more backend roles like this."
+    },
+    {
+      "category": "Comment",
+      "text": "Drop a comment if backend is your field."
+    },
+    {
+      "category": "Share",
+      "text": "Share this with a backend friend."
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Ask below if you have questions about this backend role."
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for more design roles."
+    },
+    {
+      "category": "Comment",
+      "text": "Comment if you're going for this design role."
+    },
+    {
+      "category": "Save",
+      "text": "Save this design listing for later."
+    },
+    {
+      "category": "Share",
+      "text": "Tag someone who'd be great for this design role."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "More design roles coming soon — follow along."
+    },
+    {
+      "category": "Comment",
+      "text": "Curious how many of you work in design? Comment below."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Let me know if you want more design roles like this."
+    },
+    {
+      "category": "Comment",
+      "text": "Drop a comment if design is your field."
+    },
+    {
+      "category": "Share",
+      "text": "Share this with a design friend."
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Ask below if you have questions about this design role."
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for more marketing roles."
+    },
+    {
+      "category": "Comment",
+      "text": "Comment if you're going for this marketing role."
+    },
+    {
+      "category": "Save",
+      "text": "Save this marketing listing for later."
+    },
+    {
+      "category": "Share",
+      "text": "Tag someone who'd be great for this marketing role."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "More marketing roles coming soon — follow along."
+    },
+    {
+      "category": "Comment",
+      "text": "Curious how many of you work in marketing? Comment below."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Let me know if you want more marketing roles like this."
+    },
+    {
+      "category": "Comment",
+      "text": "Drop a comment if marketing is your field."
+    },
+    {
+      "category": "Share",
+      "text": "Share this with a marketing friend."
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Ask below if you have questions about this marketing role."
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for more support roles."
+    },
+    {
+      "category": "Comment",
+      "text": "Comment if you're going for this support role."
+    },
+    {
+      "category": "Save",
+      "text": "Save this support listing for later."
+    },
+    {
+      "category": "Share",
+      "text": "Tag someone who'd be great for this support role."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "More support roles coming soon — follow along."
+    },
+    {
+      "category": "Comment",
+      "text": "Curious how many of you work in support? Comment below."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Let me know if you want more support roles like this."
+    },
+    {
+      "category": "Comment",
+      "text": "Drop a comment if support is your field."
+    },
+    {
+      "category": "Share",
+      "text": "Share this with a support friend."
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Ask below if you have questions about this support role."
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for more data roles."
+    },
+    {
+      "category": "Comment",
+      "text": "Comment if you're going for this data role."
+    },
+    {
+      "category": "Save",
+      "text": "Save this data listing for later."
+    },
+    {
+      "category": "Share",
+      "text": "Tag someone who'd be great for this data role."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "More data roles coming soon — follow along."
+    },
+    {
+      "category": "Comment",
+      "text": "Curious how many of you work in data? Comment below."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Let me know if you want more data roles like this."
+    },
+    {
+      "category": "Comment",
+      "text": "Drop a comment if data is your field."
+    },
+    {
+      "category": "Share",
+      "text": "Share this with a data friend."
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Ask below if you have questions about this data role."
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for more product roles."
+    },
+    {
+      "category": "Comment",
+      "text": "Comment if you're going for this product role."
+    },
+    {
+      "category": "Save",
+      "text": "Save this product listing for later."
+    },
+    {
+      "category": "Share",
+      "text": "Tag someone who'd be great for this product role."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "More product roles coming soon — follow along."
+    },
+    {
+      "category": "Comment",
+      "text": "Curious how many of you work in product? Comment below."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Let me know if you want more product roles like this."
+    },
+    {
+      "category": "Comment",
+      "text": "Drop a comment if product is your field."
+    },
+    {
+      "category": "Share",
+      "text": "Share this with a product friend."
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Ask below if you have questions about this product role."
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for more writing roles."
+    },
+    {
+      "category": "Comment",
+      "text": "Comment if you're going for this writing role."
+    },
+    {
+      "category": "Save",
+      "text": "Save this writing listing for later."
+    },
+    {
+      "category": "Share",
+      "text": "Tag someone who'd be great for this writing role."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "More writing roles coming soon — follow along."
+    },
+    {
+      "category": "Comment",
+      "text": "Curious how many of you work in writing? Comment below."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Let me know if you want more writing roles like this."
+    },
+    {
+      "category": "Comment",
+      "text": "Drop a comment if writing is your field."
+    },
+    {
+      "category": "Share",
+      "text": "Share this with a writing friend."
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Ask below if you have questions about this writing role."
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for more sales roles."
+    },
+    {
+      "category": "Comment",
+      "text": "Comment if you're going for this sales role."
+    },
+    {
+      "category": "Save",
+      "text": "Save this sales listing for later."
+    },
+    {
+      "category": "Share",
+      "text": "Tag someone who'd be great for this sales role."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "More sales roles coming soon — follow along."
+    },
+    {
+      "category": "Comment",
+      "text": "Curious how many of you work in sales? Comment below."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Let me know if you want more sales roles like this."
+    },
+    {
+      "category": "Comment",
+      "text": "Drop a comment if sales is your field."
+    },
+    {
+      "category": "Share",
+      "text": "Share this with a sales friend."
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Ask below if you have questions about this sales role."
+    },
+    {
+      "category": "Follow",
+      "text": "Follow for more AI roles."
+    },
+    {
+      "category": "Comment",
+      "text": "Comment if you're going for this AI role."
+    },
+    {
+      "category": "Save",
+      "text": "Save this AI listing for later."
+    },
+    {
+      "category": "Share",
+      "text": "Tag someone who'd be great for this AI role."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "More AI roles coming soon — follow along."
+    },
+    {
+      "category": "Comment",
+      "text": "Curious how many of you work in AI? Comment below."
+    },
+    {
+      "category": "Tell Me Your Role",
+      "text": "Let me know if you want more AI roles like this."
+    },
+    {
+      "category": "Comment",
+      "text": "Drop a comment if AI is your field."
+    },
+    {
+      "category": "Share",
+      "text": "Share this with a AI friend."
+    },
+    {
+      "category": "Ask Questions",
+      "text": "Ask below if you have questions about this AI role."
+    }
+  ],
+  "ctaRotationRules": {
+    "rule": "Do not overuse any single CTA. Track recent CTA usage and avoid repeating the same phrase (or near-duplicate) within a short run of posts.",
+    "implementationNotes": [
+      "Maintain a rolling history of the last 15-20 CTAs used and exclude them from selection.",
+      "Weight selection across categories (Follow, Comment, Save, Share, etc.) so one category doesn't dominate a session.",
+      "Prefer swapping the topic/role reference in a CTA over reusing the exact same wording twice in a row.",
+      "Occasionally pair a primary CTA with a very short secondary line (e.g. a future teaser) rather than stacking two CTAs."
+    ]
+  },
+  "engagementHooks": [
+    "I've got another frontend role coming later.",
+    "I've got another backend role coming later.",
+    "I've got another full-stack role coming later.",
+    "I've got another design role coming later.",
+    "I've got another product role coming later.",
+    "I've got another marketing role coming later.",
+    "I've got another customer support role coming later.",
+    "I've got another data role coming later.",
+    "I've got another writing role coming later.",
+    "I've got another sales role coming later.",
+    "I've got another AI role coming later.",
+    "I've got another DevOps role coming later.",
+    "I've got another project management role coming later.",
+    "I've got another QA role coming later.",
+    "I've got another HR role coming later.",
+    "I've got another finance role coming later.",
+    "More frontend jobs dropping today.",
+    "More backend jobs dropping today.",
+    "More full-stack jobs dropping today.",
+    "More design jobs dropping today.",
+    "More product jobs dropping today.",
+    "More marketing jobs dropping today.",
+    "More customer support jobs dropping today.",
+    "More data jobs dropping today.",
+    "More writing jobs dropping today.",
+    "More sales jobs dropping today.",
+    "More AI jobs dropping today.",
+    "More DevOps jobs dropping today.",
+    "More project management jobs dropping today.",
+    "More QA jobs dropping today.",
+    "More HR jobs dropping today.",
+    "More finance jobs dropping today.",
+    "I'll post another worldwide frontend role shortly.",
+    "I'll post another worldwide backend role shortly.",
+    "I'll post another worldwide full-stack role shortly.",
+    "I'll post another worldwide design role shortly.",
+    "I'll post another worldwide product role shortly.",
+    "I'll post another worldwide marketing role shortly.",
+    "I'll post another worldwide customer support role shortly.",
+    "I'll post another worldwide data role shortly.",
+    "I'll post another worldwide writing role shortly.",
+    "I'll post another worldwide sales role shortly.",
+    "I'll post another worldwide AI role shortly.",
+    "I'll post another worldwide DevOps role shortly.",
+    "I'll post another worldwide project management role shortly.",
+    "I'll post another worldwide QA role shortly.",
+    "I'll post another worldwide HR role shortly.",
+    "I'll post another worldwide finance role shortly.",
+    "There's a frontend opening I'm saving for later today.",
+    "There's a backend opening I'm saving for later today.",
+    "There's a full-stack opening I'm saving for later today.",
+    "There's a design opening I'm saving for later today.",
+    "There's a product opening I'm saving for later today.",
+    "There's a marketing opening I'm saving for later today.",
+    "There's a customer support opening I'm saving for later today.",
+    "There's a data opening I'm saving for later today.",
+    "There's a writing opening I'm saving for later today.",
+    "There's a sales opening I'm saving for later today.",
+    "There's a AI opening I'm saving for later today.",
+    "There's a DevOps opening I'm saving for later today.",
+    "There's a project management opening I'm saving for later today.",
+    "There's a QA opening I'm saving for later today.",
+    "There's a HR opening I'm saving for later today.",
+    "There's a finance opening I'm saving for later today.",
+    "Still have a few frontend roles left to share this week.",
+    "Still have a few backend roles left to share this week.",
+    "Still have a few full-stack roles left to share this week.",
+    "Still have a few design roles left to share this week.",
+    "Still have a few product roles left to share this week.",
+    "Still have a few marketing roles left to share this week.",
+    "Still have a few customer support roles left to share this week.",
+    "Still have a few data roles left to share this week.",
+    "Still have a few writing roles left to share this week.",
+    "Still have a few sales roles left to share this week.",
+    "Still have a few AI roles left to share this week.",
+    "Still have a few DevOps roles left to share this week.",
+    "Still have a few project management roles left to share this week.",
+    "Still have a few QA roles left to share this week.",
+    "Still have a few HR roles left to share this week.",
+    "Still have a few finance roles left to share this week.",
+    "Found a solid frontend listing — sharing it next.",
+    "Found a solid backend listing — sharing it next.",
+    "Found a solid full-stack listing — sharing it next.",
+    "Found a solid design listing — sharing it next.",
+    "Found a solid product listing — sharing it next.",
+    "Found a solid marketing listing — sharing it next.",
+    "Found a solid customer support listing — sharing it next.",
+    "Found a solid data listing — sharing it next.",
+    "Found a solid writing listing — sharing it next.",
+    "Found a solid sales listing — sharing it next.",
+    "Found a solid AI listing — sharing it next.",
+    "Found a solid DevOps listing — sharing it next.",
+    "Found a solid project management listing — sharing it next.",
+    "Found a solid QA listing — sharing it next.",
+    "Found a solid HR listing — sharing it next.",
+    "Found a solid finance listing — sharing it next.",
+    "Working through a backlog of frontend roles right now.",
+    "Working through a backlog of backend roles right now.",
+    "Working through a backlog of full-stack roles right now.",
+    "Working through a backlog of design roles right now.",
+    "Working through a backlog of product roles right now.",
+    "Working through a backlog of marketing roles right now.",
+    "Working through a backlog of customer support roles right now.",
+    "Working through a backlog of data roles right now.",
+    "Working through a backlog of writing roles right now.",
+    "Working through a backlog of sales roles right now.",
+    "Working through a backlog of AI roles right now.",
+    "Working through a backlog of DevOps roles right now.",
+    "Working through a backlog of project management roles right now.",
+    "Working through a backlog of QA roles right now.",
+    "Working through a backlog of HR roles right now.",
+    "Working through a backlog of finance roles right now.",
+    "A frontend role just came in — posting soon.",
+    "A backend role just came in — posting soon.",
+    "A full-stack role just came in — posting soon.",
+    "A design role just came in — posting soon.",
+    "A product role just came in — posting soon.",
+    "A marketing role just came in — posting soon.",
+    "A customer support role just came in — posting soon.",
+    "A data role just came in — posting soon.",
+    "A writing role just came in — posting soon.",
+    "A sales role just came in — posting soon.",
+    "A AI role just came in — posting soon.",
+    "A DevOps role just came in — posting soon.",
+    "A project management role just came in — posting soon.",
+    "A QA role just came in — posting soon.",
+    "A HR role just came in — posting soon.",
+    "A finance role just came in — posting soon.",
+    "Got a frontend opportunity lined up for later.",
+    "Got a backend opportunity lined up for later.",
+    "Got a full-stack opportunity lined up for later.",
+    "Got a design opportunity lined up for later.",
+    "Got a product opportunity lined up for later.",
+    "Got a marketing opportunity lined up for later.",
+    "Got a customer support opportunity lined up for later.",
+    "Got a data opportunity lined up for later.",
+    "Got a writing opportunity lined up for later.",
+    "Got a sales opportunity lined up for later.",
+    "Got a AI opportunity lined up for later.",
+    "Got a DevOps opportunity lined up for later.",
+    "Got a project management opportunity lined up for later.",
+    "Got a QA opportunity lined up for later.",
+    "Got a HR opportunity lined up for later.",
+    "Got a finance opportunity lined up for later.",
+    "Another frontend role is on deck.",
+    "Another backend role is on deck.",
+    "Another full-stack role is on deck.",
+    "Another design role is on deck.",
+    "Another product role is on deck.",
+    "Another marketing role is on deck.",
+    "Another customer support role is on deck.",
+    "Another data role is on deck.",
+    "Another writing role is on deck.",
+    "Another sales role is on deck.",
+    "Another AI role is on deck.",
+    "Another DevOps role is on deck.",
+    "Another project management role is on deck.",
+    "Another QA role is on deck.",
+    "Another HR role is on deck.",
+    "Another finance role is on deck.",
+    "I've got another remote Customer Success role coming next.",
+    "More AI jobs dropping later.",
+    "I'll share another high-paying opportunity this afternoon.",
+    "Frontend developers, I've got something coming next.",
+    "Another fully remote role is coming shortly."
+  ],
+  "futureTeasers": [
+    "Another remote role is coming shortly.",
+    "I'll share more high-paying jobs later today.",
+    "More verified openings are dropping soon.",
+    "There's another frontend listing coming up.",
+    "There's another backend listing coming up.",
+    "There's another full-stack listing coming up.",
+    "There's another design listing coming up.",
+    "There's another product listing coming up.",
+    "There's another marketing listing coming up.",
+    "There's another customer support listing coming up.",
+    "There's another data listing coming up.",
+    "There's another writing listing coming up.",
+    "There's another sales listing coming up.",
+    "There's another AI listing coming up.",
+    "There's another DevOps listing coming up.",
+    "There's another project management listing coming up.",
+    "There's another QA listing coming up.",
+    "There's another HR listing coming up.",
+    "There's another finance listing coming up.",
+    "Got more frontend roles queued for later.",
+    "Got more backend roles queued for later.",
+    "Got more full-stack roles queued for later.",
+    "Got more design roles queued for later.",
+    "Got more product roles queued for later.",
+    "Got more marketing roles queued for later.",
+    "Got more customer support roles queued for later.",
+    "Got more data roles queued for later.",
+    "Got more writing roles queued for later.",
+    "Got more sales roles queued for later.",
+    "Got more AI roles queued for later.",
+    "Got more DevOps roles queued for later.",
+    "Got more project management roles queued for later.",
+    "Got more QA roles queued for later.",
+    "Got more HR roles queued for later.",
+    "Got more finance roles queued for later.",
+    "Another frontend opportunity is on the way.",
+    "Another backend opportunity is on the way.",
+    "Another full-stack opportunity is on the way.",
+    "Another design opportunity is on the way.",
+    "Another product opportunity is on the way.",
+    "Another marketing opportunity is on the way.",
+    "Another customer support opportunity is on the way.",
+    "Another data opportunity is on the way.",
+    "Another writing opportunity is on the way.",
+    "Another sales opportunity is on the way.",
+    "Another AI opportunity is on the way.",
+    "Another DevOps opportunity is on the way.",
+    "Another project management opportunity is on the way.",
+    "Another QA opportunity is on the way.",
+    "Another HR opportunity is on the way.",
+    "Another finance opportunity is on the way.",
+    "More roles like this are coming this week.",
+    "I'll be posting a few more frontend roles soon.",
+    "I'll be posting a few more backend roles soon.",
+    "I'll be posting a few more full-stack roles soon.",
+    "I'll be posting a few more design roles soon.",
+    "I'll be posting a few more product roles soon.",
+    "I'll be posting a few more marketing roles soon.",
+    "I'll be posting a few more customer support roles soon.",
+    "I'll be posting a few more data roles soon.",
+    "I'll be posting a few more writing roles soon.",
+    "I'll be posting a few more sales roles soon.",
+    "I'll be posting a few more AI roles soon.",
+    "I'll be posting a few more DevOps roles soon.",
+    "I'll be posting a few more project management roles soon.",
+    "I'll be posting a few more QA roles soon.",
+    "I'll be posting a few more HR roles soon.",
+    "I'll be posting a few more finance roles soon.",
+    "Keep checking back — more frontend listings coming.",
+    "Keep checking back — more backend listings coming.",
+    "Keep checking back — more full-stack listings coming.",
+    "Keep checking back — more design listings coming.",
+    "Keep checking back — more product listings coming.",
+    "Keep checking back — more marketing listings coming.",
+    "Keep checking back — more customer support listings coming.",
+    "Keep checking back — more data listings coming.",
+    "Keep checking back — more writing listings coming.",
+    "Keep checking back — more sales listings coming.",
+    "Keep checking back — more AI listings coming.",
+    "Keep checking back — more DevOps listings coming.",
+    "Keep checking back — more project management listings coming.",
+    "Keep checking back — more QA listings coming.",
+    "Keep checking back — more HR listings coming.",
+    "Keep checking back — more finance listings coming.",
+    "There's more in the pipeline for frontend folks.",
+    "There's more in the pipeline for backend folks.",
+    "There's more in the pipeline for full-stack folks.",
+    "There's more in the pipeline for design folks.",
+    "There's more in the pipeline for product folks.",
+    "There's more in the pipeline for marketing folks.",
+    "There's more in the pipeline for customer support folks.",
+    "There's more in the pipeline for data folks.",
+    "There's more in the pipeline for writing folks.",
+    "There's more in the pipeline for sales folks.",
+    "There's more in the pipeline for AI folks.",
+    "There's more in the pipeline for DevOps folks.",
+    "There's more in the pipeline for project management folks.",
+    "There's more in the pipeline for QA folks.",
+    "There's more in the pipeline for HR folks.",
+    "There's more in the pipeline for finance folks."
+  ],
+  "softEngagementStrategy": {
+    "description": "Occasionally reference future value to create anticipation without sounding manipulative. Use sparingly — not on every post — so it stays genuine.",
+    "examples": [
+      "I've got another remote Customer Success role coming next.",
+      "More AI jobs dropping later.",
+      "I'll share another high-paying opportunity this afternoon.",
+      "Frontend developers, I've got something coming next.",
+      "Another fully remote role is coming shortly."
+    ],
+    "guidelines": [
+      "Only reference future posts that will genuinely happen — never invent fake pipelines.",
+      "Keep it to one short sentence, usually at the end of the post.",
+      "Vary the role/topic referenced so it doesn't feel like a copy-pasted line.",
+      "Avoid stacking a soft-engagement line with more than one other CTA."
+    ]
+  },
+  "trustSignals": [
+    "Recently posted.",
+    "Verified listing.",
+    "Worldwide applicants welcome.",
+    "Sourced directly from the company's job board.",
+    "Application link goes straight to the employer.",
+    "No third-party recruiters involved.",
+    "Posted the same day it went live.",
+    "Confirmed remote-friendly role.",
+    "Listed by the hiring company directly.",
+    "Checked before posting.",
+    "Direct application, no middleman.",
+    "Still open at time of posting.",
+    "Pulled from the official careers page.",
+    "No application fee required.",
+    "Publicly listed and verifiable.",
+    "Open to applicants from multiple countries.",
+    "Company website confirms remote status.",
+    "Live and accepting applications as of posting."
+  ],
+  "emojiRules": {
+    "preferredEmojis": [
+      "📢",
+      "💼",
+      "🌍",
+      "💰",
+      "👇",
+      "✅",
+      "🔍",
+      "📌"
+    ],
+    "maximumEmojis": 4,
+    "placement": [
+      "At the start of an opening line to draw the eye (e.g. '📢 Remote Job Alert').",
+      "Before a key data point like salary (💰) or location (🌍).",
+      "Before a link to guide the reader downward (👇)."
+    ],
+    "avoid": [
+      "Emoji strings or blocks (e.g. 🔥🔥🔥🚀🚀🚀).",
+      "Emojis used purely for decoration with no functional purpose.",
+      "More than one emoji per line.",
+      "Emojis in the CTA itself unless it's a single, purposeful marker."
+    ]
+  },
+  "formattingRules": [
+    "Maximum two blank lines between sections.",
+    "Avoid large emoji blocks.",
+    "Never exceed platform character limits.",
+    "Use line breaks to separate distinct pieces of information (role, pay, location).",
+    "Keep the application link on its own line.",
+    "Bold or capitalize sparingly — never full lines in caps.",
+    "One CTA per post unless naturally combined (e.g. follow + comment).",
+    "Avoid hashtags stacking more than 2-3 per post.",
+    "Keep total post length scannable in under 10 seconds.",
+    "Don't wrap the application link in extra punctuation.",
+    "Use consistent spacing so posts feel like part of a series.",
+    "Avoid ALL CAPS except for short acronyms (e.g. 'US', 'UK').",
+    "Never use more than one exclamation point per post.",
+    "Keep summary lines to one or two short sentences maximum."
+  ],
+  "placeholderRules": {
+    "general": "Placeholders should be inserted where a human would naturally state that detail in conversation — never forced or labeled like a form field.",
+    "rules": {
+      "{{JOB_TITLE}}": "Use naturally in the opening or role line, e.g. 'Hiring: {{JOB_TITLE}}' or '{{JOB_TITLE}} at {{COMPANY}}'. Avoid repeating it more than twice per post.",
+      "{{COMPANY}}": "Pair with {{JOB_TITLE}} in most posts. Only omit if the company prefers anonymity in the source data.",
+      "{{SALARY}}": "State plainly, e.g. '{{SALARY}}' on its own line or paired with a 💰 emoji. Never editorialize ('an amazing {{SALARY}}').",
+      "{{LOCATION}}": "Use to clarify remote eligibility, e.g. 'Open to {{LOCATION}} applicants' or '🌍 {{LOCATION}}'.",
+      "{{EMPLOYMENT_TYPE}}": "State factually, e.g. '{{EMPLOYMENT_TYPE}} | {{LOCATION}}'.",
+      "{{SUMMARY}}": "Use as a one-line hook describing the role's core responsibility or appeal — keep it under 20 words.",
+      "{{APPLICATION_LINK}}": "Always place on its own line, clearly separated, ideally after a short lead-in like 'Apply here:' or 'Apply:'."
+    },
+    "avoidRobotic": [
+      "Never leave a placeholder unfilled or visibly bracketed in final output.",
+      "Never string more than 3 placeholders in a single sentence without connecting language.",
+      "Vary the sentence structure around placeholders so posts don't read like a form template."
+    ]
+  },
+  "forbiddenPhrases": [
+    "Guaranteed job",
+    "100% hired",
+    "Last chance",
+    "Don't miss this once-in-a-lifetime opportunity",
+    "Act now",
+    "Apply immediately or miss out",
+    "This will fill fast",
+    "Only a few hours left",
+    "Everyone is applying",
+    "Highest paying job ever",
+    "No experience needed, guaranteed hire",
+    "Click now",
+    "Limited spots — hurry",
+    "This job will change your life",
+    "Once in a lifetime",
+    "Too good to be true offer",
+    "Secret job nobody knows about",
+    "Guaranteed interview",
+    "You'd be crazy not to apply",
+    "Insane salary",
+    "Unbelievable opportunity",
+    "This won't last long",
+    "Everyone's talking about this job",
+    "Free money",
+    "No skills required",
+    "Get rich working remote",
+    "This is not a scam",
+    "Trust me on this one",
+    "Best job on the internet",
+    "Once you see this you'll quit your job today"
+  ],
+  "qualityChecklist": [
+    "Does the first line stop the scroll without being clickbait?",
+    "Is every claim in the post factually grounded in the job data provided?",
+    "Are all placeholders filled and free of visible brackets or errors?",
+    "Is the application link clearly separated on its own line?",
+    "Does the post contain no more than one CTA?",
+    "Is emoji usage within the 0-4 limit and functional, not decorative?",
+    "Does the post avoid all forbidden phrases?",
+    "Is the tone conversational and human, not robotic or templated?",
+    "Is the post free of fake urgency or unverifiable claims?",
+    "Does the structure vary from the last few posts generated?",
+    "Is the post scannable in under 10 seconds?",
+    "Does the post stay within platform character limits?",
+    "Is the sentence rhythm varied (not all short, not all long)?",
+    "Does the post build trust rather than pressure the reader?",
+    "Would a real person plausibly write this sentence?"
+  ],
+  "samplePosts": [
+    "📢 Remote Job Alert\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SALARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nIf you're looking for more remote roles like this, follow for daily openings.",
+    "Hiring: {{JOB_TITLE}}\n\nRemote role at {{COMPANY}}\n\nRecently posted and open to {{LOCATION}} applicants\n\nApply:\n{{APPLICATION_LINK}}\n\nComment \"Interested\" if you want more roles like this.",
+    "New remote opportunity 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\nApply now:\n{{APPLICATION_LINK}}\n\nFollow for more verified remote jobs.",
+    "{{JOB_TITLE}} — {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\n{{SUMMARY}}\n\nApply: {{APPLICATION_LINK}}\n\nTag someone who'd be a great fit.",
+    "Just posted: {{JOB_TITLE}} at {{COMPANY}}.\n\n{{EMPLOYMENT_TYPE}}, {{LOCATION}}.\n\n{{SUMMARY}}\n\nLink to apply: {{APPLICATION_LINK}}\n\nMore roles going up today — follow along.",
+    "Worth applying to: {{JOB_TITLE}} at {{COMPANY}}\n\n{{SALARY}} — {{LOCATION}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nComment your field below, curious who this reaches.",
+    "{{COMPANY}} is hiring a {{JOB_TITLE}}.\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\nApply: {{APPLICATION_LINK}}\n\nSave this for later if you're not job hunting yet.",
+    "New on the board: {{JOB_TITLE}}\n\nCompany: {{COMPANY}}\nPay: {{SALARY}}\nWhere: {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nAnother role coming later today.",
+    "Quick one for you —\n\n{{JOB_TITLE}} at {{COMPANY}}, {{LOCATION}}.\n\n{{SUMMARY}}\n\nApply: {{APPLICATION_LINK}}\n\nFollow for daily remote roles.",
+    "📌 {{JOB_TITLE}}\n\n{{COMPANY}} | {{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}",
+    "Spotted this today —\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow for more like this.",
+    "Sharing this one —\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you're applying.",
+    "Here's a fresh listing:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave this for later.",
+    "Adding this to today's board:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTag someone who'd be a fit.",
+    "Found this for you:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nMore roles coming later today.",
+    "Today's pick:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLet me know if you have questions.",
+    "One more for the list:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment your country, curious about reach.",
+    "This just went live:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow so you don't miss the next one.",
+    "New role worth a look:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nShare this with someone job hunting.",
+    "Straight from the source:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDrop a comment if this is your field.",
+    "Spotted this today —\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow for more like this.",
+    "Sharing this one —\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you're applying.",
+    "Here's a fresh listing:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave this for later.",
+    "Adding this to today's board:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTag someone who'd be a fit.",
+    "Found this for you:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nMore roles coming later today.",
+    "Today's pick:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLet me know if you have questions.",
+    "One more for the list:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment your country, curious about reach.",
+    "This just went live:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow so you don't miss the next one.",
+    "New role worth a look:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nShare this with someone job hunting.",
+    "Straight from the source:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDrop a comment if this is your field.",
+    "Spotted this today —\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow for more like this.",
+    "Sharing this one —\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you're applying.",
+    "Here's a fresh listing:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave this for later.",
+    "Adding this to today's board:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTag someone who'd be a fit.",
+    "Found this for you:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nMore roles coming later today.",
+    "Today's pick:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLet me know if you have questions.",
+    "One more for the list:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment your country, curious about reach.",
+    "This just went live:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow so you don't miss the next one.",
+    "New role worth a look:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nShare this with someone job hunting.",
+    "Straight from the source:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDrop a comment if this is your field.",
+    "Spotted this today —\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow for more like this.",
+    "Sharing this one —\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you're applying.",
+    "Here's a fresh listing:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave this for later.",
+    "Adding this to today's board:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTag someone who'd be a fit.",
+    "Found this for you:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nMore roles coming later today.",
+    "Today's pick:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLet me know if you have questions.",
+    "One more for the list:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment your country, curious about reach.",
+    "This just went live:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow so you don't miss the next one.",
+    "New role worth a look:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nShare this with someone job hunting.",
+    "Straight from the source:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDrop a comment if this is your field.",
+    "Spotted this today —\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow for more like this.",
+    "Sharing this one —\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you're applying.",
+    "Here's a fresh listing:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave this for later.",
+    "Adding this to today's board:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTag someone who'd be a fit.",
+    "Found this for you:\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n{{SALARY}}\n\n{{SUMMARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nMore roles coming later today."
+  ],
+  "exampleTemplates": [
+    "Remote Job Alert 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow for daily remote roles.",
+    "Hiring Now\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nFollow along — more roles posted regularly.",
+    "New Remote Opportunity: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow if you want first access to new listings.",
+    "Just Posted\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow for more opportunities like this one.",
+    "Work From Anywhere 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow to keep these in your feed.",
+    "Fresh Listing\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nGive me a follow for more remote finds.",
+    "New Opening: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow so you don't miss the next one.",
+    "Remote Role Just Dropped\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollowing gets you daily updates on new roles.",
+    "Today's Remote Pick 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow for a steady stream of verified listings.",
+    "Verified Remote Role\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nFollow if remote work is on your radar.",
+    "Now Hiring: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nNew roles go up often — follow to stay in the loop.",
+    "New On My Radar\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow to see what's next.",
+    "Worth Applying To 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nI post these regularly — follow to keep up.",
+    "Spotted This Today\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nFollow for more finds like this throughout the week.",
+    "New Remote Gig: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow if you're job hunting right now.",
+    "Remote Opportunity\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow — there's more where this came from.",
+    "Found This For You 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nStick around by following for future roles.",
+    "On The Board Today\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nFollow for a running list of remote openings.",
+    "New Listing Just In: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow to catch tomorrow's roles too.",
+    "Today's Find\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow if this is useful — more coming.",
+    "Remote Role Alert 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment your target role and I'll keep an eye out.",
+    "Just Went Live\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nDrop a comment if you're applying.",
+    "New Role Up: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment 'sent' once you've applied.",
+    "Fresh Off The Board\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLet me know in the comments if you have questions about this one.",
+    "Here's One Worth Sharing 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment your experience level — curious who this fits.",
+    "Another One Just Landed\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nTell me in the comments what field you're in.",
+    "Remote Pick Of The Day: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you'd like a similar role shared next.",
+    "New Opportunity Just In\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDrop your thoughts below.",
+    "This One Caught My Eye 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment your country — curious how far this reach goes.",
+    "Sharing This One\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nLet me know below if you apply.",
+    "Quick One For You: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you want tips on this application.",
+    "New Remote Listing\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTell me in the comments what role you're hunting for.",
+    "Just Came Across This 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment 'interested' if you want more like this.",
+    "Today's Remote Opening\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nDrop a comment with your current role.",
+    "Adding This To The List: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment below if you'd like more details.",
+    "Straight From The Source\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLet me know in the comments how the process goes.",
+    "New Role Worth A Look 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you've worked somewhere similar.",
+    "Here's Today's Pick\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nTell me below what you're looking for next.",
+    "Something New Just Posted: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment your dream remote role.",
+    "Remote Job Just In\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDrop a note below if this fits your background.",
+    "This Just Landed 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave this for when you're ready to apply.",
+    "New On The List\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nSave it — you might not have time to apply right now.",
+    "Job Alert: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nBookmark this one for later.",
+    "Opportunity Spotlight\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave this post so it doesn't get lost in your feed.",
+    "Today's Opportunity 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave now, apply when you're ready.",
+    "Fresh Remote Listing\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nWorth saving if you're not actively job hunting yet.",
+    "New Role On My List: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave this in case the timing's better next week.",
+    "Sharing A New One\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTuck this away for later — save it.",
+    "Here's What Just Opened Up 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave this one if you know someone who'd want it too.",
+    "Another Remote Find\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nSave it so you can revisit the details.",
+    "New Post For The Job Hunters: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nKnow someone who'd be a fit? Send this their way.",
+    "Just Added To The Board\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTag a friend who's job hunting.",
+    "Something For The Remote Workers 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nShare this with someone looking for remote work.",
+    "New Career Move Alert\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nPass this along to someone who needs it.",
+    "This One's Worth Your Time: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSend this to a friend in the field.",
+    "Remote Find Of The Day\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nIf this isn't for you, it might be for someone you know.",
+    "New Opportunity For You 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nRepost if you know someone this could help.",
+    "Here's One To Bookmark\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nShare this with your network.",
+    "Just Dropped: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSomeone in your circle might need to see this.",
+    "This Landed On My Desk\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nForward this to a friend who's between jobs.",
+    "New Role Just Surfaced 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nHappy to point you toward resume resources if you need them.",
+    "One For The List\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nIf your resume needs a refresh before applying, ask below.",
+    "Today's Job Spotlight: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLet me know if you want general application tips.",
+    "Remote Opening Just Posted\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if resume feedback would help.",
+    "Sharing A Fresh One 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nAsk below if you want pointers before applying.",
+    "New Listing Alert\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nNot sure your resume is ready? Ask in the comments.",
+    "Here's What's New Today: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nHappy to share general resume tips if useful.",
+    "Just Came In\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLet me know if you'd like formatting suggestions.",
+    "New Role To Consider 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nWant interview prep pointers? Ask in the comments.",
+    "Adding One More To The Board\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nHappy to share general interview tips if it helps.",
+    "Today's Remote Listing: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you'd like prep suggestions for roles like this.",
+    "New Post Alert\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nAsk below if interview tips would be useful.",
+    "This One's Fresh 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLet me know if you want to talk through interview prep.",
+    "Remote Job Update\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nCurious about the interview process for roles like this? Ask away.",
+    "Here's A New One: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nQuestions about this one? Drop them below.",
+    "Worth A Look Today\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nAsk away in the comments.",
+    "New Career Opportunity 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nHappy to answer questions about this listing.",
+    "Job Spotlight\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nNot sure if you qualify? Ask below.",
+    "Today's New Role: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment your questions — I'll do my best to help.",
+    "Remote Listing Update\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nUnsure about anything here? Ask in the comments.",
+    "Another Fresh Pick 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nWhat's your current role? Curious who this reaches.",
+    "New Remote Post\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nComment your job title — let's see who's out there.",
+    "Here's Something New: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTell me what you do — I try to match roles to the right people.",
+    "This Just Popped Up\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nWhat field are you in? Drop it below.",
+    "New Role Available 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment your country — curious about reach on this one.",
+    "Today's Board Update\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nWhere are you applying from? Let me know below.",
+    "Fresh Job Post: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTell me your location — helps me know who to post for next.",
+    "New Career Listing\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nMore roles going up today.",
+    "Remote Position Alert 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nAnother one coming later.",
+    "Here's One I Found\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nThis isn't the only one today — more to come.",
+    "New Job Just Surfaced: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nMore listings on the way.",
+    "Today's Remote Spotlight\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nThere's more in the pipeline.",
+    "New Position Open 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nAnother role incoming shortly.",
+    "This Role Just Opened\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nKeep an eye out — more today.",
+    "Sharing Today's Find: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nWhat role should I look for next?",
+    "Remote Role Update\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTell me what to post next.",
+    "New Job Post 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDesign, dev, or marketing — what do you want to see next?",
+    "Another Opportunity Live\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nWhat kind of role should I find next?",
+    "Fresh Board Update: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nVote in the comments for tomorrow's focus.",
+    "Today's Career Pick\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nNew roles posted daily — stick around.",
+    "New Remote Position 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDaily remote listings, no fluff.",
+    "One More For The Board\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nOne of many roles posted this week.",
+    "Remote Job Alert: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nPart of the daily lineup — more above and below.",
+    "Hiring Now\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDaily remote finds, verified before posting.",
+    "New Remote Opportunity 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nIf you're looking for remote Customer Support roles, follow for daily openings.",
+    "Just Posted\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nIf you're looking for remote Frontend roles, follow for daily openings.",
+    "Work From Anywhere: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nIf you're looking for remote Backend roles, follow for daily openings.",
+    "Fresh Listing\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nIf you're looking for remote Design roles, follow for daily openings.",
+    "New Opening 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nIf you're looking for remote Marketing roles, follow for daily openings.",
+    "Remote Role Just Dropped\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nIf you're looking for remote Data roles, follow for daily openings.",
+    "Today's Remote Pick: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nIf you're looking for remote AI roles, follow for daily openings.",
+    "Verified Remote Role\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nIf you're looking for remote Sales roles, follow for daily openings.",
+    "Now Hiring 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment 'Interested' and I'll share more similar roles.",
+    "New On My Radar\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nFollow for verified remote jobs every day.",
+    "Worth Applying To: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nWhat remote role are you searching for? Tell me below.",
+    "Spotted This Today\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDrop your preferred role in the comments.",
+    "New Remote Gig 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nNeed help reviewing your CV? Comment 'CV'.",
+    "Remote Opportunity\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nLooking for Customer Support jobs? Follow so you don't miss the next one.",
+    "Found This For You: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLooking for Frontend jobs? Follow so you don't miss the next one.",
+    "On The Board Today\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLooking for Backend jobs? Follow so you don't miss the next one.",
+    "New Listing Just In 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLooking for Design jobs? Follow so you don't miss the next one.",
+    "Today's Find\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nLooking for Marketing jobs? Follow so you don't miss the next one.",
+    "Remote Role Alert: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLooking for Data jobs? Follow so you don't miss the next one.",
+    "Just Went Live\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLooking for AI jobs? Follow so you don't miss the next one.",
+    "New Role Up 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLooking for Sales jobs? Follow so you don't miss the next one.",
+    "Fresh Off The Board\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nComment your country.",
+    "Here's One Worth Sharing: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTag someone looking for remote work.",
+    "Another One Just Landed\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave this opportunity.",
+    "Remote Pick Of The Day 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nRepost so someone sees this.",
+    "New Opportunity Just In\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nMore remote jobs coming today.",
+    "This One Caught My Eye: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nI'll be sharing another high-paying remote role shortly.",
+    "Sharing This One\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow so the algorithm keeps showing you these jobs.",
+    "Quick One For You 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nWhich role should I post next?",
+    "New Remote Listing\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nIf you're actively job hunting, comment 'READY'.",
+    "Just Came Across This: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nWant interview tips too? Follow.",
+    "Today's Remote Opening\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nIf you're applying, let me know.",
+    "Adding This To The List 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment your stack if you're a developer.",
+    "Straight From The Source\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nNeed an entry-level role? Follow.",
+    "New Role Worth A Look: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTell me what role you're searching for.",
+    "Here's Today's Pick\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow for more frontend roles.",
+    "Something New Just Posted 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you're going for this frontend role.",
+    "Remote Job Just In\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nSave this frontend listing for later.",
+    "This Just Landed: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTag someone who'd be great for this frontend role.",
+    "New On The List\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nMore frontend roles coming soon — follow along.",
+    "Job Alert 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nCurious how many of you work in frontend? Comment below.",
+    "Opportunity Spotlight\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nLet me know if you want more frontend roles like this.",
+    "Today's Opportunity: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDrop a comment if frontend is your field.",
+    "Fresh Remote Listing\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nShare this with a frontend friend.",
+    "New Role On My List 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nAsk below if you have questions about this frontend role.",
+    "Sharing A New One\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nFollow for more backend roles.",
+    "Here's What Just Opened Up: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you're going for this backend role.",
+    "Another Remote Find\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave this backend listing for later.",
+    "New Post For The Job Hunters 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTag someone who'd be great for this backend role.",
+    "Just Added To The Board\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nMore backend roles coming soon — follow along.",
+    "Something For The Remote Workers: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nCurious how many of you work in backend? Comment below.",
+    "New Career Move Alert\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLet me know if you want more backend roles like this.",
+    "This One's Worth Your Time 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDrop a comment if backend is your field.",
+    "Remote Find Of The Day\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nShare this with a backend friend.",
+    "New Opportunity For You: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nAsk below if you have questions about this backend role.",
+    "Here's One To Bookmark\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow for more design roles.",
+    "Just Dropped 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you're going for this design role.",
+    "This Landed On My Desk\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nSave this design listing for later.",
+    "New Role Just Surfaced: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTag someone who'd be great for this design role.",
+    "One For The List\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nMore design roles coming soon — follow along.",
+    "Today's Job Spotlight 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nCurious how many of you work in design? Comment below.",
+    "Remote Opening Just Posted\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nLet me know if you want more design roles like this.",
+    "Sharing A Fresh One: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDrop a comment if design is your field.",
+    "New Listing Alert\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nShare this with a design friend.",
+    "Here's What's New Today 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nAsk below if you have questions about this design role.",
+    "Just Came In\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nFollow for more marketing roles.",
+    "New Role To Consider: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you're going for this marketing role.",
+    "Adding One More To The Board\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave this marketing listing for later.",
+    "Today's Remote Listing 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTag someone who'd be great for this marketing role.",
+    "New Post Alert\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nMore marketing roles coming soon — follow along.",
+    "This One's Fresh: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nCurious how many of you work in marketing? Comment below.",
+    "Remote Job Update\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLet me know if you want more marketing roles like this.",
+    "Here's A New One 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDrop a comment if marketing is your field.",
+    "Worth A Look Today\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nShare this with a marketing friend.",
+    "New Career Opportunity: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nAsk below if you have questions about this marketing role.",
+    "Job Spotlight\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow for more support roles.",
+    "Today's New Role 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you're going for this support role.",
+    "Remote Listing Update\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nSave this support listing for later.",
+    "Another Fresh Pick: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTag someone who'd be great for this support role.",
+    "New Remote Post\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nMore support roles coming soon — follow along.",
+    "Here's Something New 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nCurious how many of you work in support? Comment below.",
+    "This Just Popped Up\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nLet me know if you want more support roles like this.",
+    "New Role Available: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDrop a comment if support is your field.",
+    "Today's Board Update\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nShare this with a support friend.",
+    "Fresh Job Post 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nAsk below if you have questions about this support role.",
+    "New Career Listing\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nFollow for more data roles.",
+    "Remote Position Alert: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nComment if you're going for this data role.",
+    "Here's One I Found\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nSave this data listing for later.",
+    "New Job Just Surfaced 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nTag someone who'd be great for this data role.",
+    "Today's Remote Spotlight\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nMore data roles coming soon — follow along.",
+    "New Position Open: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nCurious how many of you work in data? Comment below.",
+    "This Role Just Opened\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nLet me know if you want more data roles like this.",
+    "Sharing Today's Find 👇\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n💰 {{SALARY}}\n🌍 {{LOCATION}}\n\nApply:\n{{APPLICATION_LINK}}\n\nDrop a comment if data is your field.",
+    "Remote Role Update\n\n{{JOB_TITLE}} — {{COMPANY}}\n{{EMPLOYMENT_TYPE}} | {{LOCATION}}\n\n{{SUMMARY}}\n\nApply here:\n{{APPLICATION_LINK}}\n\nShare this with a data friend.",
+    "New Job Post: {{JOB_TITLE}}\n\n{{COMPANY}} | {{LOCATION}}\n{{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nAsk below if you have questions about this data role.",
+    "Another Opportunity Live\n\n{{JOB_TITLE}} at {{COMPANY}}\n\n{{SUMMARY}}\n\n{{EMPLOYMENT_TYPE}} | {{LOCATION}} | {{SALARY}}\n\nApply:\n{{APPLICATION_LINK}}\n\nFollow for more product roles."
+  ]
+}

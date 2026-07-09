@@ -15,4 +15,5 @@ export const SettingsUpdateSchedulerFrequency = {
   '2xdaily': '2xdaily',
   daily: 'daily',
   manual: 'manual',
+  '6x_daily': '6x_daily',
 } as const;

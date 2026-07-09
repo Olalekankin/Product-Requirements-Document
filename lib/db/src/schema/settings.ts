@@ -17,6 +17,9 @@ export const settingsTable = pgTable("settings", {
   postedWithinDays: integer("posted_within_days"),
   emailNotifications: boolean("email_notifications").notNull().default(false),
   inAppNotifications: boolean("in_app_notifications").notNull().default(true),
+  autoPostEnabled: boolean("auto_post_enabled").notNull().default(false),
+  autoPostMinScore: integer("auto_post_min_score").notNull().default(85),
+  autoDiscoverEnabled: boolean("auto_discover_enabled").notNull().default(false),
   updatedAt: timestamp("updated_at", { withTimezone: true })
     .notNull()
     .defaultNow()

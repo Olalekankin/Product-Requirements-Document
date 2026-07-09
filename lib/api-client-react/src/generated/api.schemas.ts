@@ -238,6 +238,7 @@ export const SettingsSchedulerFrequency = {
   '2xdaily': '2xdaily',
   daily: 'daily',
   manual: 'manual',
+  '6x_daily': '6x_daily',
 } as const;
 
 export interface Settings {
@@ -257,6 +258,9 @@ export interface Settings {
   postedWithinDays: number | null;
   emailNotifications: boolean;
   inAppNotifications: boolean;
+  autoPostEnabled: boolean;
+  autoPostMinScore: number;
+  autoDiscoverEnabled: boolean;
   updatedAt: string;
 }
 
@@ -269,6 +273,7 @@ export const SettingsUpdateSchedulerFrequency = {
   '2xdaily': '2xdaily',
   daily: 'daily',
   manual: 'manual',
+  '6x_daily': '6x_daily',
 } as const;
 
 export interface SettingsUpdate {
@@ -287,6 +292,9 @@ export interface SettingsUpdate {
   postedWithinDays?: number | null;
   emailNotifications?: boolean;
   inAppNotifications?: boolean;
+  autoPostEnabled?: boolean;
+  autoPostMinScore?: number;
+  autoDiscoverEnabled?: boolean;
 }
 
 export interface NoteInput {

@@ -87,7 +87,7 @@ async function processNextBatch(): Promise<boolean> {
   return true;
 }
 
-async function run() {
+export async function startAgentRunner() {
   logger.info("Agent runner starting");
 
   while (true) {
@@ -103,7 +103,16 @@ async function run() {
   }
 }
 
-run().catch((err) => {
-  logger.error({ err }, "Agent runner crashed");
-  process.exit(1);
-});
+// Only run automatically if executed directly as a script
+const isMain = process.argv[1] && (
+  process.argv[1].endsWith("agent-runner.ts") ||
+  process.argv[1].endsWith("agent-runner.mjs") ||
+  process.argv[1].endsWith("agent-runner.js")
+);
+
+if (isMain) {
+  startAgentRunner().catch((err) => {
+    logger.error({ err }, "Agent runner crashed");
+    process.exit(1);
+  });
+}

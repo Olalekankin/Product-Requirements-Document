@@ -2,6 +2,7 @@ import { loadEnv } from "./lib/load-env";
 import app from "./app";
 import { logger } from "./lib/logger";
 import { startCronScheduler } from "./lib/cron-scheduler";
+import { startAgentRunner } from "./workers/agent-runner";
 
 loadEnv();
 
@@ -23,4 +24,9 @@ app.listen(port, (err) => {
 
   logger.info({ port }, "Server listening");
   startCronScheduler();
+
+  // Run the AI agent processor in-process unless explicitly disabled
+  if (process.env.START_AGENT_IN_PROCESS !== "false") {
+    startAgentRunner();
+  }
 });

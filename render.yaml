@@ -22,13 +22,13 @@ services:
       - key: PORT
         value: 10000
       - key: GEMINI_API_KEY
-        sync: true
+        sync: false
       - key: TWITTER_CLIENT_ID
-        sync: true
+        sync: false
       - key: LINKEDIN_CLIENT_ID
-        sync: true
+        sync: false
       - key: LINKEDIN_CLIENT_SECRET
-        sync: true
+        sync: false
 
   # 2. Agent Runner (Background Worker)
   - type: worker
@@ -45,4 +45,4 @@ services:
           name: job-scout-db
           property: connectionString
       - key: GEMINI_API_KEY
-        sync: true
+        sync: false

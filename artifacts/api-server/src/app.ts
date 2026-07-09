@@ -3,6 +3,7 @@ import cors from "cors";
 import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
+import path from "node:path";
 
 const app: Express = express();
 
@@ -30,5 +31,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
+
+// Serve static assets in production
+const isProduction = process.env.NODE_ENV === "production";
+if (isProduction) {
+  const publicDir = path.resolve(__dirname, "../../job-scout/dist/public");
+  app.use(express.static(publicDir));
+
+  // Fallback for Single Page Application (SPA) routing
+  app.get("*", (req, res, next) => {
+    if (req.path.startsWith("/api")) {
+      return next();
+    }
+    res.sendFile(path.join(publicDir, "index.html"));
+  });
+}
 
 export default app;

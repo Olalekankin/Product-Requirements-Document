@@ -6,6 +6,8 @@ import { summarizeJob } from "../lib/gemini";
 
 loadEnv();
 
+export let isAgentRunning = false;
+
 const POLL_INTERVAL_MS = 10_000;
 const MAX_BATCH = 5;
 
@@ -89,6 +91,7 @@ async function processNextBatch(): Promise<boolean> {
 
 export async function startAgentRunner() {
   logger.info("Agent runner starting");
+  isAgentRunning = true;
 
   while (true) {
     try {
@@ -98,6 +101,7 @@ export async function startAgentRunner() {
       }
     } catch (err) {
       logger.error({ err }, "Agent runner encountered an unexpected error");
+      isAgentRunning = false;
       await sleep(POLL_INTERVAL_MS);
     }
   }

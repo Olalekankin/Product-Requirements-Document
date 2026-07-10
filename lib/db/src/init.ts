@@ -11,9 +11,15 @@ export async function initializeDatabase() {
     throw new Error("DATABASE_URL must be set before initializing the database.");
   }
 
-  const dbPackageDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-  const result = spawnSync(getPnpmCommand(), ["run", "push"], {
-    cwd: dbPackageDir,
+  // Run the workspace-level pnpm script for the db package. Using --filter
+  // from the repository root avoids issues with import.meta.url resolution
+  // when this code is bundled into other packages.
+  const repoRoot = process.cwd();
+  const cmd = getPnpmCommand();
+  const args = ["--filter", "@workspace/db", "run", "push"];
+
+  const result = spawnSync(cmd, args, {
+    cwd: repoRoot,
     stdio: "inherit",
     env: process.env,
   });
@@ -23,8 +29,6 @@ export async function initializeDatabase() {
   }
 
   if (result.status !== 0) {
-    throw new Error(
-      `Database initialization failed with exit code ${result.status ?? "unknown"}.`,
-    );
+    throw new Error(`Database initialization failed with exit code ${result.status ?? "unknown"}.`);
   }
 }
